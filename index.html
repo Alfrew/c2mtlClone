@@ -5,33 +5,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>C2MTL | C2 Montreal 2024</title>
+  <link rel="stylesheet" href="assets/scss/style.css">
 </head>
 
 <body>
   <header class="header">
-    <button class="nav-toggle" data-btni18n="header__nav-toggle"></button>
-    <a href="/" data-i18n="header__title"></a>
+    <button class="nav-toggle" data-btni18n="navigation__nav-toggle">
+      <div class="nav-toggle__burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="nav-toggle__close">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </button>
+    <a class="header__title" href="/" data-i18n="navigation__title"></a>
     <nav class="header-nav">
       <ul class="header-nav__list">
-        <li class="header-nav-item"><a class="header-nav-item__link" href="/become-a-partner" data-i18n="header__partner"></a></li>
-        <li class="header-nav-item"><a class="header-nav-item__link" href="/speakers" data-i18n="header__speakers"></a></li>
-        <li class="header-nav-item"><a class="header-nav-item__link" href="/contact" data-i18n="header__contact"></a></li>
+        <li class="header-nav-item"><a class="header-nav-item__link" href="/become-a-partner" data-i18n="navigation__partner"></a></li>
+        <li class="header-nav-item"><a class="header-nav-item__link" href="/speakers" data-i18n="navigation__speakers"></a></li>
+        <li class="header-nav-item"><a class="header-nav-item__link" href="/contact" data-i18n="navigation__contact"></a></li>
       </ul>
     </nav>
 
-    <a id="french" href="index.html" onclick="changeLanguage('fr')">FR</a>
-    <a id="english" href="index.html" onclick="changeLanguage('en')">EN</a>
+    <div class="header__language-selector">
+      <div class="language-selector">
+        <a id="french" class="language-selector__link ttu p2" href="index.html" onclick="changeLanguage('fr')">FR</a>
+        <a id="english" class="language-selector__link ttu p2" href="index.html" onclick="changeLanguage('en')">EN</a>
+      </div>
+    </div>
 
-    <button class="tickets-toggle tickets-toggle--close" data-btni18n="header__tickets-toggle">
-      <span class="tickets-toggle__label--open" data-i18n="header__tickets--open"></span>
-      <span class="tickets-toggle__label--close" data-i18n="header__tickets--close"></span>
-      <span class="tickets-toggle__icon--open"></span>
-      <span class="tickets-toggle__icon--close"></span>
+    <button class="tickets-toggle p" data-btni18n="navigation__tickets-toggle">
+      <span class="tickets-toggle__label tickets-toggle__label--open" data-i18n="navigation__tickets--open"></span>
+      <span class="tickets-toggle__label tickets-toggle__label--close" data-i18n="navigation__tickets--close"></span>
+      <span class="tickets-toggle__icon tickets-toggle__icon--open">x</span>
+      <span class="tickets-toggle__icon tickets-toggle__icon--close">x</span>
     </button>
   </header>
 
-  <nav class="nav"></nav>
-  <nav class="tickets-nav"></nav>
+  <nav class="nav">
+    <div class="nav-wrapper nav-wrapper--main">
+      <ul class="nav__list">
+        <li><a class="nav-item nav-item--arrow-hover h3" href="/become-a-partner" data-i18n="navigation__partner"></a></li>
+        <li><a class="nav-item nav-item--arrow-hover h3" href="/speakers" data-i18n="navigation__speakers"></a></li>
+        <li><a class="nav-item nav-item--arrow-hover h3" href="/contact" data-i18n="navigation__contact"></a></li>
+      </ul>
+    </div>
+    <div class="nav-wrapper nav-wrapper--alt">
+      <div class="nav__wrapper-row">
+        <ul class="nav__list">
+          <li><a class="nav-item nav-item--fade-hover p" href="/governance" data-i18n="navigation__governance"></a></li>
+          <li><a class="nav-item nav-item--fade-hover p" href="/contest" data-i18n="navigation__contest"></a></li>
+        </ul>
+        <ul class="nav__list">
+          <li><a class="nav-item nav-item--fade-hover p" href="/c2-2" data-i18n="navigation__c2"></a></li>
+          <li><a class="nav-item nav-item--fade-hover p" href="https://storage.googleapis.com/c2mtl-media-bucket/2024/legal_c2mtl24/c2mtl24_privacy_policy.pdf" data-i18n="navigation__privacy"></a></li>
+          <li><a class="nav-item nav-item--fade-hover p" href="/terms-and-conditions" data-i18n="navigation__conditions"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-wrapper nav-wrapper--tickets">
+      <button class="nav-tickets-btn h3" data-i18n="navigation__tickets--open">
+        <div class="nav-tickets-btn__svg-wrapper"></div>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="tickets-nav">
+    <ul class="tickets-nav__list">
+      <li class="tickets-nav__item p">
+        <p class="tickets-nav__item-title" data-i18n="navigation__tickets-title1"></p>
+        <p class="tickets-nav__item-copy" data-i18n="navigation__tickets-copy1"></p>
+        <div class="tickets-nav__item-footer">
+          <a class="btn p btn--dark" href="" data-i18n="navigation__tickets-btn"></a>
+          <p class="tickets-nav__item-inner">
+            <span class="tickets-nav__item-price tickets-nav__item-price--new" data-i18n="navigation__tickets-price1--new"></span>
+            <span class="tickets-nav__item-price tickets-nav__item-price--old" data-i18n="navigation__tickets-price1--old"></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="tickets-nav__item p">
+        <p class="tickets-nav__item-title" data-i18n="navigation__tickets-title2"></p>
+        <p class="tickets-nav__item-copy" data-i18n="navigation__tickets-copy2"></p>
+        <div class="tickets-nav__item-footer">
+          <a class="btn p btn--dark" href="" data-i18n="navigation__tickets-btn"></a>
+          <p class="tickets-nav__item-inner">
+            <span class="tickets-nav__item-price tickets-nav__item-price--new" data-i18n="navigation__tickets-price2--new"></span>
+            <span class="tickets-nav__item-price tickets-nav__item-price--old" data-i18n="navigation__tickets-price2--old"></span>
+          </p>
+        </div>
+      </li>
+
+      <li class="tickets-nav__item p">
+        <p class="tickets-nav__item-title" data-i18n="navigation__tickets-title3"></p>
+        <p class="tickets-nav__item-copy" data-i18n="navigation__tickets-copy3"></p>
+        <div class="tickets-nav__item-footer">
+          <a class="btn p btn--dark" href="" data-i18n="navigation__tickets-btn"></a>
+          <p class="tickets-nav__item-inner">
+            <span class="tickets-nav__item-price tickets-nav__item-price--new" data-i18n="navigation__tickets-price3--new"></span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </nav>
 
   <script src="assets/js/language.js"></script>
 </body>

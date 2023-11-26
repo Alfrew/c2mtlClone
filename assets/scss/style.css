@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+:root {
+  --font-size-body1: 16px;
+  --font-size-body2: 12px;
+  --font-size-h1: 48px;
+  --font-size-h2: 40px;
+  --font-size-h3: 24px;
+  --font-size-st1: 64px;
+  --font-size-st2: 56px;
+  --font-size-st3: 48px;
+  --font-size-st4: 32px;
+  --font-size-st5: 24px;
+  --font-size-st6: 16px;
+  --font-size-btn: 16px;
+  --font-size-link: 14px;
+  --font-size-UI: 10px;
+  --font-size-headUI: 22px;
+}
+
+@media screen and (min-width: 992px) {
+  :root {
+    --font-size-body1: 22px;
+    --font-size-body2: 16px;
+    --font-size-h1: 52px;
+    --font-size-h2: 44px;
+    --font-size-h3: 28px;
+    --font-size-st1: 68px;
+    --font-size-st2: 60px;
+    --font-size-st3: 52px;
+    --font-size-st4: 36px;
+    --font-size-st5: 28px;
+    --font-size-st6: 20px;
+    --font-size-btn: 16px;
+    --font-size-link: 14px;
+    --font-size-UI: 14px;
+    --font-size-headUI: 26px;
+  }
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: var(--font-size-body2);
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  color: #424242;
+}
+
+a {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  background-color: rosybrown;
+}
