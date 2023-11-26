@@ -193,6 +193,147 @@ button {
   cursor: pointer;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: white;
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(-100%);
+}
+.header .nav-toggle {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: black;
+}
+.header .nav-toggle .line {
+  position: absolute;
+  width: 42px;
+  height: 1px;
+  background-color: white;
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
+}
+.header .nav-toggle .nav-toggle__burger .line {
+  left: 9px;
+}
+.header .nav-toggle .nav-toggle__burger :nth-child(1) {
+  top: 18px;
+  transition-delay: 0.5s;
+}
+.header .nav-toggle .nav-toggle__burger :nth-child(2) {
+  transition-delay: 0.6s;
+}
+.header .nav-toggle .nav-toggle__burger :nth-child(3) {
+  bottom: 18px;
+  transition-delay: 0.7s;
+}
+.header .nav-toggle .nav-toggle__close .line {
+  top: 25%;
+  transform: scaleX(0);
+}
+.header .nav-toggle .nav-toggle__close :nth-child(1) {
+  left: 25%;
+  rotate: 45deg;
+  transition-delay: 0.2s;
+}
+.header .nav-toggle .nav-toggle__close :nth-child(2) {
+  left: 75%;
+  rotate: 135deg;
+  transition-delay: 0s;
+}
+.header .nav-toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0f0;
+  height: 100%;
+  aspect-ratio: 1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
+}
+.header .nav-toggle:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.header .nav-toggle:hover .line {
+  background-color: black;
+}
+.header .nav-toggle.nav-toggle--close .nav-toggle__burger .line {
+  transform: scaleX(0);
+}
+.header .nav-toggle.nav-toggle--close .nav-toggle__burger :nth-child(1) {
+  transition-delay: 0s;
+}
+.header .nav-toggle.nav-toggle--close .nav-toggle__burger :nth-child(2) {
+  transition-delay: 0.1s;
+}
+.header .nav-toggle.nav-toggle--close .nav-toggle__burger :nth-child(3) {
+  transition-delay: 0.2s;
+}
+.header .nav-toggle.nav-toggle--close .nav-toggle__close .line {
+  transform: scaleX(1);
+}
+.header .nav-toggle.nav-toggle--close .nav-toggle__close :nth-child(1) {
+  transition-delay: 0.7s;
+}
+.header .nav-toggle.nav-toggle--close .nav-toggle__close :nth-child(2) {
+  transition-delay: 0.5s;
+}
+.header .header__title {
+  max-width: 80px;
+  margin-left: 14px;
+}
+.header .header-nav {
+  display: none;
+}
+.header .header__language-selector {
+  margin-right: 14px;
+  margin-left: auto;
+}
+.header .tickets-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 125px;
+  background-color: #0f0;
+  padding: 11px;
+}
+.header .tickets-toggle .tickets-toggle__label.tickets-toggle__label--close {
+  display: none;
+}
+.header .tickets-toggle .tickets-toggle__icon.tickets-toggle__icon--close {
+  display: none;
+}
+.header .tickets-toggle.tickets-toggle--close .tickets-toggle__label.tickets-toggle__label--open {
+  display: none;
+}
+.header .tickets-toggle.tickets-toggle--close .tickets-toggle__icon.tickets-toggle__icon--open {
+  display: none;
+}
+.header.header--visible {
+  transform: translateY(0%);
+}
+
+.hidden {
+  display: none;
+}
+
+.p {
+  font-size: 18px;
+}
+
 body {
   background-color: rosybrown;
 }

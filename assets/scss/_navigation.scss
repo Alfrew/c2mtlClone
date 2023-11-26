@@ -1,0 +1,241 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: white;
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(-100%);
+
+  .nav-toggle {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1;
+    background-color: black;
+
+    .line {
+      position: absolute;
+      width: 42px;
+      height: 1px;
+      background-color: white;
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
+    }
+
+    .nav-toggle__burger {
+      .line {
+        left: 9px;
+      }
+      :nth-child(1) {
+        top: 18px;
+        transition-delay: 0.5s;
+      }
+      :nth-child(2) {
+        transition-delay: 0.6s;
+      }
+      :nth-child(3) {
+        bottom: 18px;
+        transition-delay: 0.7s;
+      }
+    }
+    .nav-toggle__close {
+      .line {
+        top: 25%;
+        transform: scaleX(0);
+      }
+      :nth-child(1) {
+        left: 25%;
+        rotate: 45deg;
+        transition-delay: 0.2s;
+      }
+      :nth-child(2) {
+        left: 75%;
+        rotate: 135deg;
+        transition-delay: 0s;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #0f0;
+      height: 100%;
+      aspect-ratio: 1;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
+    }
+
+    &:hover {
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left;
+        transition-duration: 0.6s;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .line {
+        background-color: black;
+      }
+    }
+
+    &.nav-toggle--close {
+      .nav-toggle__burger {
+        .line {
+          transform: scaleX(0);
+        }
+        :nth-child(1) {
+          transition-delay: 0s;
+        }
+        :nth-child(2) {
+          transition-delay: 0.1s;
+        }
+        :nth-child(3) {
+          transition-delay: 0.2s;
+        }
+      }
+      .nav-toggle__close {
+        .line {
+          transform: scaleX(1);
+        }
+        :nth-child(1) {
+          transition-delay: 0.7s;
+        }
+        :nth-child(2) {
+          transition-delay: 0.5s;
+        }
+      }
+    }
+  }
+
+  .header__title {
+    max-width: 80px;
+    margin-left: 14px;
+  }
+
+  .header-nav {
+    display: none;
+
+    .header-nav__list {
+      .header-nav-item {
+        .header-nav-item__link {
+        }
+      }
+    }
+  }
+
+  .header__language-selector {
+    margin-right: 14px;
+    margin-left: auto;
+    .language-selector {
+      .language-selector__link {
+      }
+    }
+  }
+
+  .tickets-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 125px;
+    background-color: #0f0;
+    padding: 11px;
+
+    .tickets-toggle__label {
+      &.tickets-toggle__label--open {
+      }
+      &.tickets-toggle__label--close {
+        display: none;
+      }
+    }
+    .tickets-toggle__icon {
+      &.tickets-toggle__icon--open {
+      }
+      &.tickets-toggle__icon--close {
+        display: none;
+      }
+    }
+
+    &.tickets-toggle--close {
+      .tickets-toggle__label {
+        &.tickets-toggle__label--open {
+          display: none;
+        }
+        &.tickets-toggle__label--close {
+        }
+      }
+      .tickets-toggle__icon {
+        &.tickets-toggle__icon--open {
+          display: none;
+        }
+        &.tickets-toggle__icon--close {
+        }
+      }
+    }
+  }
+
+  &.header--visible {
+    transform: translateY(0%);
+  }
+}
+
+.nav {
+  .nav-wrapper {
+    .nav__list {
+      .nav-item {
+        &.nav-item--arrow-hover {
+        }
+        &.nav-item--fade-hover {
+        }
+      }
+    }
+
+    .nav__wrapper-row {
+    }
+
+    &.nav-wrapper--main {
+    }
+    &.nav-wrapper--alt {
+    }
+    &.nav-wrapper--tickets {
+      .nav-tickets-btn {
+        .nav-tickets-btn__svg-wrapper {
+        }
+      }
+    }
+  }
+
+  &.nav--open {
+  }
+}
+
+.tickets-nav {
+  .tickets-nav__list {
+    .tickets-nav__item {
+      .tickets-nav__item-title {
+      }
+      .tickets-nav__item-copy {
+      }
+      .tickets-nav__item-footer {
+        .tickets-nav__item-inner {
+          .tickets-nav__item-price {
+            &.tickets-nav__item-price--new {
+            }
+            &.tickets-nav__item-price--old {
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tickets-nav--open {
+  }
+}
