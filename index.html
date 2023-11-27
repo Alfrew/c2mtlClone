@@ -21,12 +21,12 @@
         <div class="line"></div>
       </div>
     </button>
-    <a class="header__title" href="/" data-i18n="navigation__title"></a>
+    <a class="header__title p" href="/" data-i18n="navigation__title"></a>
     <nav class="header-nav">
       <ul class="header-nav__list">
-        <li class="header-nav-item"><a class="header-nav-item__link" href="/become-a-partner" data-i18n="navigation__partner"></a></li>
-        <li class="header-nav-item"><a class="header-nav-item__link" href="/speakers" data-i18n="navigation__speakers"></a></li>
-        <li class="header-nav-item"><a class="header-nav-item__link" href="/contact" data-i18n="navigation__contact"></a></li>
+        <li class="header-nav-item"><a class="header-nav-item__link p" href="/become-a-partner" data-i18n="navigation__partner"></a></li>
+        <li class="header-nav-item"><a class="header-nav-item__link p" href="/speakers" data-i18n="navigation__speakers"></a></li>
+        <li class="header-nav-item"><a class="header-nav-item__link p" href="/contact" data-i18n="navigation__contact"></a></li>
       </ul>
     </nav>
 
@@ -39,9 +39,17 @@
 
     <button class="tickets-toggle p" data-btni18n="navigation__tickets-toggle">
       <span class="tickets-toggle__label tickets-toggle__label--open" data-i18n="navigation__tickets--open"></span>
-      <span class="tickets-toggle__label tickets-toggle__label--close" data-i18n="navigation__tickets--close"></span>
-      <span class="tickets-toggle__icon tickets-toggle__icon--open">x</span>
-      <span class="tickets-toggle__icon tickets-toggle__icon--close">x</span>
+      <span class="tickets-toggle__label tickets-toggle__label--close hidden tickets-toggle-labels-enter-active" data-i18n="navigation__tickets--close"></span>
+
+      <div class="tickets-toggle__arrow">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="tickets-toggle__close">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
     </button>
   </header>
 

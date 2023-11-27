@@ -15,14 +15,13 @@ window.addEventListener("DOMContentLoaded", async () => {
 function updateContent(langData) {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
-    element.textContent = langData[key];
+    element.innerHTML = langData[key];
   });
 }
 
 // Function to update aria label based on selected language
 function updateAriaLabel(langData) {
   document.querySelectorAll("[data-btni18n]").forEach((element) => {
-    console.log(element);
     const key = element.getAttribute("data-btni18n");
     element.ariaLabel = langData[key];
   });
@@ -52,12 +51,12 @@ async function changeLanguage(lang) {
 function hideLanguages(language) {
   switch (language) {
     case "en":
-      EN_ELEMENT.classList.add("hidden");
-      FR_ELEMENT.classList.remove("hidden");
+      EN_ELEMENT.classList.add("d-none");
+      FR_ELEMENT.classList.remove("d-none");
       break;
     case "fr":
-      FR_ELEMENT.classList.add("hidden");
-      EN_ELEMENT.classList.remove("hidden");
+      FR_ELEMENT.classList.add("d-none");
+      EN_ELEMENT.classList.remove("d-none");
       break;
   }
 }

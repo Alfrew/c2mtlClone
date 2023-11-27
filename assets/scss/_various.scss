@@ -1,7 +1,16 @@
-.hidden {
+.d-none {
   display: none;
+}
+.hidden {
+  opacity: 0;
 }
 
 .p {
-  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.p2 {
+  font-size: 1.4rem;
+  line-height: 1;
 }

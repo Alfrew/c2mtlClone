@@ -90,6 +90,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-weight: 500;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -131,9 +132,14 @@ table {
   box-sizing: border-box;
   font-size: $font-size-body2;
   font-family: $font-family;
+  font-weight: 500;
+}
+html {
+  font-size: 10px;
 }
 body {
-  color: $darker-grey;
+  color: $dark-color;
+  font-weight: 500;
 }
 a {
   font-family: $font-family;

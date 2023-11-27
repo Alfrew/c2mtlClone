@@ -1,35 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap");
 
 //** COLORS ***************************************************************************************
 
-// main colors
-$main-color: #ff6c33;
-$accent-color: #e7a054;
-$background-color: #e1e6ea;
-$light-color: #e1e6ea;
-$dark-color: #3f4440;
-// support colors
-$main-color-tint: mix(white, $main-color, 50%);
-$main-color-shade: mix(black, $main-color, 15%);
-$main-color-vibrant: saturate($main-color, 100%);
-$main-text-contrast: #e1e6ea;
-$background-text-contrast: #3f4440;
-// neutral colors
-$light-grey: #eaeaea;
-$dark-grey: #666666;
-$darker-grey: #424242;
-// alert colors
-$error-color: #ff0000;
-$warning-color: #ffc107;
-$success-color: #198754;
-// transparent colors
-$amount-transpa: 0.2;
-$main-color-transpa: transparentize($main-color, $amount-transpa);
-$accent-color-transpa: transparentize($accent-color, $amount-transpa);
-$background-color-transpa: transparentize($background-color, $amount-transpa);
-$main-color-tint-transpa: transparentize($main-color-tint, $amount-transpa);
-$main-color-shade-transpa: transparentize($main-color-shade, $amount-transpa);
-$main-color-vibrant-transpa: transparentize($main-color-vibrant, $amount-transpa);
+// main colors ****************************************************************
+// $main-color: #ff6c33;
+$accent-color: #00ff00;
+// $background-color: #ffffff;
+$light-color: #ffffff;
+$dark-color: #141414;
+// support colors *************************************************************
+// $main-color-tint: mix(white, $main-color, 50%);
+// $main-color-shade: mix(black, $main-color, 15%);
+// $main-color-vibrant: saturate($main-color, 100%);
+// $main-text-contrast: #e1e6ea;
+// $background-text-contrast: #3f4440;
+// neutral colors *************************************************************
+// $light-grey: #eaeaea;
+// $dark-grey: #666666;
+// $darker-grey: #424242;
+// alert colors ***************************************************************
+// $error-color: #ff0000;
+// $warning-color: #ffc107;
+// $success-color: #198754;
+// transparent colors *********************************************************
+// $amount-transpa: 0.2;
+// $main-color-transpa: transparentize($main-color, $amount-transpa);
+// $accent-color-transpa: transparentize($accent-color, $amount-transpa);
+// $background-color-transpa: transparentize($background-color, $amount-transpa);
+// $main-color-tint-transpa: transparentize($main-color-tint, $amount-transpa);
+// $main-color-shade-transpa: transparentize($main-color-shade, $amount-transpa);
+// $main-color-vibrant-transpa: transparentize($main-color-vibrant, $amount-transpa);
 
 //** UNITS ****************************************************************************************
 $spacing-unit: 8px;
@@ -109,6 +109,14 @@ $points: "", "sm", "md", "lg", "xl", "xxl";
           @content;
         }
       }
+    }
+  }
+}
+// mixin for hover media querie
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
     }
   }
 }
