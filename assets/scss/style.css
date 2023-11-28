@@ -186,6 +186,7 @@ html {
 body {
   color: #141414;
   font-weight: 500;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -680,6 +681,59 @@ button {
   rotate: -45deg;
 }
 
+.tickets-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 6rem;
+  z-index: 800;
+  height: calc(100dvh - 6rem);
+}
+.tickets-nav.tickets-nav--open {
+  pointer-events: all;
+}
+.tickets-nav .tickets-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  height: 100%;
+}
+.tickets-nav .tickets-nav__list .tickets-nav__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 2rem 1.3rem;
+}
+.tickets-nav .tickets-nav__list .tickets-nav__item .tickets-nav__item-title {
+  padding-bottom: 1.8rem;
+}
+.tickets-nav .tickets-nav__list .tickets-nav__item .tickets-nav__item-copy {
+  color: #999;
+  max-width: 34rem;
+}
+.tickets-nav .tickets-nav__list .tickets-nav__item .tickets-nav__item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.tickets-nav .tickets-nav__list .tickets-nav__item .tickets-nav__item-footer .tickets-nav__item-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.tickets-nav .tickets-nav__list .tickets-nav__item .tickets-nav__item-footer .tickets-nav__item-inner .tickets-nav__item-price.tickets-nav__item-price--old {
+  display: flex;
+  margin-top: 0.3rem;
+  position: relative;
+  text-decoration: line-through;
+}
+
 @media screen and (min-width: 992px) {
   .header {
     left: auto;
@@ -805,6 +859,19 @@ button {
   .nav .nav-wrapper.nav-wrapper--tickets {
     display: flex;
   }
+  .tickets-nav {
+    height: 100vh;
+    left: auto;
+    right: 6rem;
+    top: 0;
+  }
+  .tickets-nav .tickets-nav__list {
+    gap: 0.3rem;
+    padding: 0.3rem;
+  }
+  .tickets-nav .tickets-nav__list .tickets-nav__item {
+    min-width: 47.2rem;
+  }
 }
 .d-none {
   display: none;
@@ -820,7 +887,8 @@ h3 {
   line-height: 1.05;
 }
 
-.p {
+.p,
+p {
   font-size: 1.8rem;
   line-height: 1;
 }

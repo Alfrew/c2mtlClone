@@ -563,29 +563,66 @@
   }
 }
 
-// .tickets-nav {
-//   .tickets-nav__list {
-//     .tickets-nav__item {
-//       .tickets-nav__item-title {
-//       }
-//       .tickets-nav__item-copy {
-//       }
-//       .tickets-nav__item-footer {
-//         .tickets-nav__item-inner {
-//           .tickets-nav__item-price {
-//             &.tickets-nav__item-price--new {
-//             }
-//             &.tickets-nav__item-price--old {
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
+.tickets-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 6rem;
+  z-index: 800;
+  height: calc(100dvh - 6rem);
 
-//   &.tickets-nav--open {
-//   }
-// }
+  &.tickets-nav--open {
+    pointer-events: all;
+  }
+
+  .tickets-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    height: 100%;
+
+    .tickets-nav__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background-color: $light-color;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      padding: 2rem 1.3rem;
+
+      .tickets-nav__item-title {
+        padding-bottom: 1.8rem;
+      }
+      .tickets-nav__item-copy {
+        color: #999;
+        max-width: 34rem;
+      }
+      .tickets-nav__item-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        .tickets-nav__item-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          .tickets-nav__item-price {
+            &.tickets-nav__item-price--new {
+            }
+            &.tickets-nav__item-price--old {
+              display: flex;
+              margin-top: 0.3rem;
+              position: relative;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 @include for-size("lg") {
   .header {
@@ -727,6 +764,22 @@
     .nav-wrapper {
       &.nav-wrapper--tickets {
         display: flex;
+      }
+    }
+  }
+
+  .tickets-nav {
+    height: 100vh;
+    left: auto;
+    right: 6rem;
+    top: 0;
+
+    .tickets-nav__list {
+      gap: 0.3rem;
+      padding: 0.3rem;
+
+      .tickets-nav__item {
+        min-width: 47.2rem;
       }
     }
   }
