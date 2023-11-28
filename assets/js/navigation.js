@@ -1,5 +1,8 @@
 const HEADER_EL = document.querySelector(".header");
 const NAV_TOGGLE_EL = document.querySelector(".nav-toggle");
+const NAV_EL = document.querySelector(".nav");
+const NAV_WRAP_ALT_EL = document.querySelector(".nav-wrapper--alt");
+const TICKETS_BTN_EL = document.querySelector(".nav-tickets-btn");
 const TICKETS_BTN_ARROW_EL = document.querySelector(".nav-tickets-btn__arrow-wrapper");
 const TICKETS_CLOSE_LABEL_EL = document.querySelector(".tickets-toggle__label--close");
 const TICKETS_NAV_WRAPPER_EL = document.querySelector(".nav-wrapper--tickets");
@@ -14,6 +17,7 @@ NAV_TOGGLE_EL.addEventListener("click", toggleNavMenu);
 TICKETS_NAV_WRAPPER_EL.addEventListener("mouseenter", arrowEnter);
 TICKETS_NAV_WRAPPER_EL.addEventListener("mouseleave", arrowLeave);
 TICKETS_TOGGLE_EL.addEventListener("click", toggleTicketMenu);
+TICKETS_BTN_EL.addEventListener("click", toggleTicketMenu);
 
 function arrowEnter() {
   let isArrowHidden = TICKETS_BTN_ARROW_EL.classList.contains("d-none");
@@ -57,6 +61,18 @@ function arrowLeave() {
 
 function closeNavMenu() {
   NAV_TOGGLE_EL.classList.remove("nav-toggle--close");
+  NAV_EL.classList.add("nav-leave-active");
+  setTimeout(() => {
+    NAV_EL.classList.add("nav-leave-to");
+  }, 10);
+  NAV_WRAP_ALT_EL.addEventListener(
+    transitionEnd,
+    () => {
+      NAV_EL.classList.remove("nav-leave-active", "nav-leave-to", "nav--open");
+      NAV_EL.classList.add("d-none");
+    },
+    { once: true }
+  );
 }
 
 function closeTicketsMenu() {
@@ -78,6 +94,20 @@ function closeTicketsMenu() {
 
 function openNavMenu() {
   NAV_TOGGLE_EL.classList.add("nav-toggle--close");
+  NAV_EL.classList.add("nav-enter-active");
+  setTimeout(() => {
+    NAV_EL.classList.remove("d-none");
+  }, 20);
+  setTimeout(() => {
+    NAV_EL.classList.add("nav-enter-to", "nav--open");
+  }, 40);
+  NAV_WRAP_ALT_EL.addEventListener(
+    transitionEnd,
+    () => {
+      NAV_EL.classList.remove("nav-enter-active", "nav-enter-to");
+    },
+    { once: true }
+  );
 }
 
 function openTicketsMenu() {
@@ -98,7 +128,7 @@ function openTicketsMenu() {
 }
 
 function toggleNavMenu() {
-  let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close");
+  let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
   if (isNavOpen) {
     closeNavMenu();
   } else {

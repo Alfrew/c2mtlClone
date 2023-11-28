@@ -499,6 +499,46 @@ button {
   height: calc(100dvh - 6rem);
   padding: 0.5rem;
 }
+.nav.nav--open {
+  pointer-events: all;
+}
+.nav.nav-enter-active .nav-wrapper {
+  transform: translateX(calc(100% + 0.5rem));
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.nav.nav-enter-active .nav-wrapper:nth-child(1) {
+  transition-delay: 0.06s;
+}
+.nav.nav-enter-active .nav-wrapper:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.nav.nav-enter-active .nav-wrapper:nth-child(3) {
+  transition-delay: 0.18s;
+}
+.nav.nav-enter-to .nav-wrapper {
+  transform: translateX(0);
+}
+.nav.nav-leave-active .nav-wrapper {
+  transition: transform 0.9s cubic-bezier(1, 0, 0.25, 0.995);
+}
+.nav.nav-leave-active .nav-wrapper:nth-child(3) {
+  transition-delay: 0.06s;
+}
+.nav.nav-leave-active .nav-wrapper:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.nav.nav-leave-active .nav-wrapper:nth-child(1) {
+  transition-delay: 0.18s;
+}
+.nav.nav-leave-to .nav-wrapper:nth-child(1) {
+  transform: translateX(0) translateY(100vh) rotate(24deg);
+}
+.nav.nav-leave-to .nav-wrapper:nth-child(2) {
+  transform: translateX(0) translateY(100vh) rotate(-24deg);
+}
+.nav.nav-leave-to .nav-wrapper:nth-child(3) {
+  transform: translateX(0) translateY(100vh) rotate(24deg);
+}
 .nav .nav-wrapper {
   display: flex;
   border-radius: 0.5rem;
@@ -638,9 +678,6 @@ button {
 .nav .nav-wrapper.nav-wrapper--tickets .nav-tickets-btn .nav-tickets-btn__arrow-wrapper .line:nth-child(3) {
   width: 17.5rem;
   rotate: -45deg;
-}
-.nav.nav--open {
-  pointer-events: all;
 }
 
 @media screen and (min-width: 992px) {
