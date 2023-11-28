@@ -1,10 +1,12 @@
 const HEADER_EL = document.querySelector(".header");
-const NAV_TOGGLE_EL = document.querySelector(".nav-toggle");
 const NAV_EL = document.querySelector(".nav");
+const NAV_TOGGLE_EL = document.querySelector(".nav-toggle");
 const NAV_WRAP_ALT_EL = document.querySelector(".nav-wrapper--alt");
-const TICKETS_BTN_EL = document.querySelector(".nav-tickets-btn");
 const TICKETS_BTN_ARROW_EL = document.querySelector(".nav-tickets-btn__arrow-wrapper");
+const TICKETS_BTN_EL = document.querySelector(".nav-tickets-btn");
 const TICKETS_CLOSE_LABEL_EL = document.querySelector(".tickets-toggle__label--close");
+const TICKETS_NAV_EL = document.querySelector(".tickets-nav");
+const TICKETS_NAV_ITEMS = document.querySelectorAll(".tickets-nav__item");
 const TICKETS_NAV_WRAPPER_EL = document.querySelector(".nav-wrapper--tickets");
 const TICKETS_OPEN_LABEL_EL = document.querySelector(".tickets-toggle__label--open");
 const TICKETS_TOGGLE_EL = document.querySelector(".tickets-toggle");
@@ -61,6 +63,7 @@ function arrowLeave() {
 
 function closeNavMenu() {
   NAV_TOGGLE_EL.classList.remove("nav-toggle--close");
+
   NAV_EL.classList.add("nav-leave-active");
   setTimeout(() => {
     NAV_EL.classList.add("nav-leave-to");
@@ -90,17 +93,36 @@ function closeTicketsMenu() {
     },
     { once: true }
   );
+
+  TICKETS_NAV_EL.classList.add("nav-leave-active");
+  setTimeout(() => {
+    TICKETS_NAV_EL.classList.add("nav-leave-to");
+  }, 10);
+  TICKETS_NAV_ITEMS[1].addEventListener(
+    transitionEnd,
+    () => {
+      TICKETS_NAV_EL.classList.remove("nav-leave-active", "nav-leave-to", "nav--open");
+      TICKETS_NAV_EL.classList.add("d-none");
+    },
+    { once: true }
+  );
 }
 
 function openNavMenu() {
+  let isTicketsNavOpen =
+    TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_OPEN_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("nav--open");
   NAV_TOGGLE_EL.classList.add("nav-toggle--close");
+
   NAV_EL.classList.add("nav-enter-active");
   setTimeout(() => {
     NAV_EL.classList.remove("d-none");
   }, 20);
-  setTimeout(() => {
-    NAV_EL.classList.add("nav-enter-to", "nav--open");
-  }, 40);
+  setTimeout(
+    () => {
+      NAV_EL.classList.add("nav-enter-to", "nav--open");
+    },
+    isTicketsNavOpen ? 800 : 40
+  );
   NAV_WRAP_ALT_EL.addEventListener(
     transitionEnd,
     () => {
@@ -111,6 +133,7 @@ function openNavMenu() {
 }
 
 function openTicketsMenu() {
+  let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
   TICKETS_TOGGLE_EL.classList.add("tickets-toggle--close");
 
   TICKETS_CLOSE_LABEL_EL.classList.remove("hidden");
@@ -122,6 +145,24 @@ function openTicketsMenu() {
       TICKETS_CLOSE_LABEL_EL.classList.remove("tickets-toggle-labels-enter-active", "tickets-toggle-labels-enter-to");
       TICKETS_OPEN_LABEL_EL.classList.remove("tickets-toggle-labels-leave-active", "tickets-toggle-labels-leave-to");
       TICKETS_OPEN_LABEL_EL.classList.add("hidden", "tickets-toggle-labels-enter-active");
+    },
+    { once: true }
+  );
+
+  TICKETS_NAV_EL.classList.add("nav-enter-active");
+  setTimeout(() => {
+    TICKETS_NAV_EL.classList.remove("d-none");
+  }, 20);
+  setTimeout(
+    () => {
+      TICKETS_NAV_EL.classList.add("nav-enter-to", "nav--open");
+    },
+    isNavOpen ? 800 : 40
+  );
+  TICKETS_NAV_ITEMS[1].addEventListener(
+    transitionEnd,
+    () => {
+      TICKETS_NAV_EL.classList.remove("nav-enter-active", "nav-enter-to");
     },
     { once: true }
   );
@@ -140,8 +181,10 @@ function toggleNavMenu() {
 }
 
 function toggleTicketMenu() {
-  let isMenuOpen = TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_OPEN_LABEL_EL.classList.contains("hidden");
-  let isMenuClosed = !TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_CLOSE_LABEL_EL.classList.contains("hidden");
+  let isMenuOpen =
+    TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_OPEN_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("nav--open");
+  let isMenuClosed =
+    !TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_CLOSE_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("d-none");
   if (isMenuOpen) {
     closeTicketsMenu();
   } else if (isMenuClosed) {
