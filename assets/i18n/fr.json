@@ -1,4 +1,10 @@
 {
+  "countdown__close-btn": "Fermer",
+  "countdown__days": "j",
+  "countdown__hours": "h",
+  "countdown__minutes": "m",
+  "countdown__seconds": "s",
+  "countdown__title": "Début dans",
   "navigation__c2": "C2²",
   "navigation__conditions": "Conditions générales",
   "navigation__contact": "Contactez-nous",
