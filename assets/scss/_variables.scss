@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap");
+
+//** COLORS ***************************************************************************************
+
+// main colors ****************************************************************
+// $main-color: #ff6c33;
+$accent-color: #00ff00;
+// $background-color: #ffffff;
+$light-color: #ffffff;
+$dark-color: #141414;
+// support colors *************************************************************
+// $main-color-tint: mix(white, $main-color, 50%);
+// $main-color-shade: mix(black, $main-color, 15%);
+// $main-color-vibrant: saturate($main-color, 100%);
+// $main-text-contrast: #e1e6ea;
+// $background-text-contrast: #3f4440;
+// neutral colors *************************************************************
+// $light-grey: #eaeaea;
+// $dark-grey: #666666;
+// $darker-grey: #424242;
+// alert colors ***************************************************************
+// $error-color: #ff0000;
+// $warning-color: #ffc107;
+// $success-color: #198754;
+// transparent colors *********************************************************
+// $amount-transpa: 0.2;
+// $main-color-transpa: transparentize($main-color, $amount-transpa);
+// $accent-color-transpa: transparentize($accent-color, $amount-transpa);
+// $background-color-transpa: transparentize($background-color, $amount-transpa);
+// $main-color-tint-transpa: transparentize($main-color-tint, $amount-transpa);
+// $main-color-shade-transpa: transparentize($main-color-shade, $amount-transpa);
+// $main-color-vibrant-transpa: transparentize($main-color-vibrant, $amount-transpa);
+
+//** UNITS ****************************************************************************************
+$spacing-unit: 8px;
+$transition-time-unit: 250ms;
+$round-unit: 10%;
+
+//** TEXT *****************************************************************************************
+$font-family: "Roboto", sans-serif;
+// FONT-SIZES
+// Body
+$font-size-body1: var(--font-size-body1);
+$font-size-body2: var(--font-size-body2);
+$font-size-body3: var(--font-size-body3);
+// Headings
+$font-size-h1: var(--font-size-h1);
+$font-size-h2: var(--font-size-h2);
+$font-size-h3: var(--font-size-h3);
+// Sub-titles
+$font-size-st1: var(--font-size-st1);
+$font-size-st2: var(--font-size-st2);
+$font-size-st3: var(--font-size-st3);
+$font-size-st4: var(--font-size-st4);
+$font-size-st5: var(--font-size-st5);
+$font-size-st6: var(--font-size-st6);
+// Utils
+$font-size-btn: var(--font-size-btn);
+$font-size-link: var(--font-size-link);
+$font-size-UI: var(--font-size-UI);
+$font-size-headUI: var(--font-size-headUI);
+// LINE-HEIGHTS
+$line-height-headings: 1.125em;
+$line-height-body: 1.3em;
+
+//** MEDIA QUERIES ********************************************************************************
+// min-width screen sizes
+$smartphone: 576px; //sm
+$tablet-portrait: 768px; //md
+$tablet-landscape: 992px; //lg
+$desktop: 1200px; //xl
+$tv: 1400px; //xxl
+$points: "", "sm", "md", "lg", "xl", "xxl";
+// mixin for media querie implementetion
+@mixin for-size($point) {
+  @if $point == sm {
+    @media screen and (min-width: $smartphone) {
+      @content;
+    }
+  } @else if $point == md {
+    @media screen and (min-width: $tablet-portrait) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media screen and (min-width: $tablet-landscape) {
+      @content;
+    }
+  } @else if $point == xl {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  } @else if $point == xxl {
+    @media screen and (min-width: $tv) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+// make the same class through all break-points
+@mixin make-querie-classes($class) {
+  .#{$class} {
+    @content;
+  }
+  @each $point in $points {
+    @if $point != "" {
+      @include for-size($point) {
+        .#{$class}-#{$point} {
+          @content;
+        }
+      }
+    }
+  }
+}
+// mixin for hover media querie
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+//** MEDIA QUERIES VARIABLES  *********************************************************************
+// From 0px to...
+:root {
+  // Text-sizes
+  --font-size-body1: 16px;
+  --font-size-body2: 12px;
+  --font-size-h1: 48px;
+  --font-size-h2: 40px;
+  --font-size-h3: 24px;
+  --font-size-st1: 64px;
+  --font-size-st2: 56px;
+  --font-size-st3: 48px;
+  --font-size-st4: 32px;
+  --font-size-st5: 24px;
+  --font-size-st6: 16px;
+  --font-size-btn: 16px;
+  --font-size-link: 14px;
+  --font-size-UI: 10px;
+  --font-size-headUI: 22px;
+}
+// From "var" to max-width
+@media screen and (min-width: $tablet-landscape) {
+  :root {
+    // Text-sizes
+    --font-size-body1: 22px;
+    --font-size-body2: 16px;
+    --font-size-h1: 52px;
+    --font-size-h2: 44px;
+    --font-size-h3: 28px;
+    --font-size-st1: 68px;
+    --font-size-st2: 60px;
+    --font-size-st3: 52px;
+    --font-size-st4: 36px;
+    --font-size-st5: 28px;
+    --font-size-st6: 20px;
+    --font-size-btn: 16px;
+    --font-size-link: 14px;
+    --font-size-UI: 14px;
+    --font-size-headUI: 26px;
+  }
+}
