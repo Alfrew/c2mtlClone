@@ -190,3 +190,36 @@ img {
     transition: opacity 0.4s;
   }
 }
+
+@include for-size("lg") {
+  .h1,
+  h1 {
+    font-size: 17.5rem;
+    line-height: 1;
+  }
+  .h3,
+  h3 {
+    font-size: 3rem;
+    line-height: 1.05;
+  }
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    padding-left: 0.81081vw;
+    padding-right: 0.81081vw;
+    gap: 0 1.62162vw;
+  }
+
+  .parallax-asset {
+    &.parallax-asset--abs {
+      .parallax-asset__wrapper {
+        position: absolute;
+      }
+    }
+
+    .parallax-asset__wrapper {
+      bottom: -10%;
+      height: 120%;
+      top: -10%;
+    }
+  }
+}
