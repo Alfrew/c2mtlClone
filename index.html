@@ -184,7 +184,7 @@
       <section class="home-hero">
         <h1 class="home-hero__title grid is-visible">
           <span class="home-hero__title-line">
-            <span class="home-line__title-line-inner anim-text">
+            <span class="home-hero__title-line-inner anim-text">
               <span class="text-splitter text-splitter--splitted" data-i18n="homeHero__title"></span>
             </span>
             <div aria-hidden="true" class="home-hero__square home-hero__square--black">
@@ -220,19 +220,21 @@
           <div class="home-hero-cta">
             <div class="home-hero-cta__inner">
               <div class="home-hero-cta__fig-wrapper">
-                <figure role="presentation" class="home-hero-cta__fig">
-                  <picture class="base-image"></picture>
+                <figure class="home-hero-cta__fig" role="presentation">
+                  <picture class="base-image">
+                    <img class="base-image__img--fade" src="assets/img/c2-logo.png" width="1114" height="753" alt="C2MTL">
+                  </picture>
                 </figure>
               </div>
               <button class="home-hero-cta__btn" data-btni18n="homeHero__btn">
-                <span class="home-hero__cta-label ttu" data-i18n="homeHero__btn"></span>
+                <span class="home-hero-cta__btn-label ttu" data-i18n="homeHero__btn"></span>
               </button>
             </div>
           </div>
 
           <div class="home-hero-highlight">
             <div class="home-hero__highlight-square home-hero__square home-hero__square--gradient">
-              <div class="home-hero-highlight__wrapper"></div>
+              <div class="home-hero__square-inner"></div>
             </div>
             <div class="home-hero-highlight__wrapper">
               <h2 class="home-hero-highlight__title h3" data-i18n="homeHero__highlight-title"></h2>
@@ -245,9 +247,11 @@
           <div class="home-hero-video">
             <div class="home-hero-video__wrapper">
               <div class="home-hero-video__inner">
-                <div class="paralllax-asset__wrapper">
-                  <div class="base-video base-video--fit base-video--loaded">
-                    <video height="1" width="1" playsinline autoplay="autoplay" loop="loop" controlslist="nodownload noplaybackrate" src="???"></video>
+                <div class="parallax-asset is-visible parallax-asset--abs">
+                  <div class="parallax-asset__wrapper">
+                    <div class="base-video base-video--fit">
+                      <video height="1" width="1" playsinline autoplay loop muted controlslist="nodownload noplaybackrate" src="assets/img/grand-quai-anglo-v2.mp4"></video>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -270,6 +274,7 @@
     <!-- <footer class="footer"></footer> -->
   </div>
 
+  <script src="assets/js/general.js"></script>
   <script src="assets/js/language.js"></script>
   <script src="assets/js/navigation.js"></script>
   <script src="assets/js/countdown.js"></script>
