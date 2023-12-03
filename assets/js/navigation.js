@@ -1,4 +1,5 @@
 const HEADER_EL = document.querySelector(".header");
+const HERO_TICKETS_TOGGLE_EL = document.querySelector(".home-hero-cta__btn");
 const NAV_EL = document.querySelector(".nav");
 const NAV_TOGGLE_EL = document.querySelector(".nav-toggle");
 const NAV_WRAP_ALT_EL = document.querySelector(".nav-wrapper--alt");
@@ -15,11 +16,12 @@ let transitionEnd = whichTransitionEvent();
 setTimeout(() => {
   HEADER_EL.classList.add("header--visible");
 }, 1500);
+HERO_TICKETS_TOGGLE_EL.addEventListener("click", toggleTicketMenu);
 NAV_TOGGLE_EL.addEventListener("click", toggleNavMenu);
+TICKETS_BTN_EL.addEventListener("click", toggleTicketMenu);
 TICKETS_NAV_WRAPPER_EL.addEventListener("mouseenter", arrowEnter);
 TICKETS_NAV_WRAPPER_EL.addEventListener("mouseleave", arrowLeave);
 TICKETS_TOGGLE_EL.addEventListener("click", toggleTicketMenu);
-TICKETS_BTN_EL.addEventListener("click", toggleTicketMenu);
 
 function arrowEnter() {
   let isArrowHidden = TICKETS_BTN_ARROW_EL.classList.contains("d-none");

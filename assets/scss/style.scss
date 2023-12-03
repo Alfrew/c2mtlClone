@@ -3,3 +3,15 @@
 body {
   background-color: rosybrown;
 }
+
+.content-wrapper {
+  margin-top: 6rem;
+  position: relative;
+}
+
+@include for-size("lg") {
+  .content-wrapper {
+    margin-right: 6rem;
+    margin-top: 0;
+  }
+}

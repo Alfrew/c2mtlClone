@@ -5,6 +5,11 @@
   opacity: 0;
 }
 
+.h1,
+h1 {
+  font-size: 6rem;
+  line-height: 0.85;
+}
 .h3,
 h3 {
   font-size: 2.4rem;
@@ -25,6 +30,10 @@ p {
 .p2 {
   font-size: 1.4rem;
   line-height: 1;
+}
+
+.ttu {
+  text-transform: uppercase;
 }
 
 .btn {
@@ -86,6 +95,131 @@ p {
       &.btn__label--ghost {
         transform: translate(-50%, -50%);
       }
+    }
+  }
+}
+
+.text-splitter {
+  display: block;
+  opacity: 0;
+  &.text-splitter--splitted {
+    opacity: 1;
+  }
+}
+
+.anim-text,
+.text-splitter {
+  perspective: 100rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0 1rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  width: 100%;
+}
+.base-image__img--fade {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.base-image__img--loaded {
+  opacity: 1;
+}
+
+.parallax-asset {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  &.parallax-asset--abs {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .parallax-asset__wrapper {
+    border-radius: 0.5rem;
+    height: 100%;
+    left: 0;
+    position: relative;
+    width: 100%;
+
+    img,
+    video {
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+.base-video {
+  display: flex;
+  position: relative;
+  &.base-video--fit {
+    height: 100%;
+    width: 100%;
+
+    video {
+      left: 0;
+      -o-object-fit: cover;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &.base-video--loaded {
+    video {
+      opacity: 1;
+    }
+  }
+  video {
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+    transition: opacity 0.4s;
+  }
+}
+
+@include for-size("lg") {
+  .h1,
+  h1 {
+    font-size: 17.5rem;
+    line-height: 1;
+  }
+  .h3,
+  h3 {
+    font-size: 3rem;
+    line-height: 1.05;
+  }
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    padding-left: 0.81081vw;
+    padding-right: 0.81081vw;
+    gap: 0 1.62162vw;
+  }
+
+  .parallax-asset {
+    &.parallax-asset--abs {
+      .parallax-asset__wrapper {
+        position: absolute;
+      }
+    }
+
+    .parallax-asset__wrapper {
+      bottom: -10%;
+      height: 120%;
+      top: -10%;
     }
   }
 }
