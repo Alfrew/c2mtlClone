@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   hideLanguages(userPreferredLanguage);
   updateContent(langData);
   updateAriaLabel(langData);
-  updateAriaLabel(langData);
 });
 
 // Function to update content based on selected language

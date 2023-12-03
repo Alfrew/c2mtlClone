@@ -5,11 +5,24 @@ const HERO_SQUARE_EL = document.querySelector(".home-hero__square");
 const HERO_TITLE_EL = document.querySelector(".home-hero__title");
 const HERO_VIDEO_EL = document.querySelector(".home-hero-video");
 const HIGHLIGHT_SQUARE_EL = document.querySelector(".home-hero__highlight-square .home-hero__square-inner");
+const DATE_ANIM_TEXT_LIST = HERO_DATE_EL.querySelectorAll(".anim-text");
+const TITLE_ANIM_TEXT_LIST = HERO_TITLE_EL.querySelectorAll(".anim-text");
 
 setTimeout(() => {
-  HERO_DATE_EL.classList.add("is-visible");
+  splitText(TITLE_ANIM_TEXT_LIST, 0.15);
+  splitText(DATE_ANIM_TEXT_LIST, 0.0);
+}, 1400);
+setTimeout(() => {
   HERO_TITLE_EL.classList.add("is-visible");
 }, 1500);
+
+if (window.innerWidth < 992) {
+  setTimeout(() => {
+    HERO_DATE_EL.classList.add("is-visible");
+  }, 2000);
+} else {
+  window.addEventListener("scroll", checkDateElement);
+}
 window.addEventListener("scroll", animationScroll);
 
 function animationScroll() {
@@ -20,6 +33,36 @@ function animationScroll() {
     translateElement(HIGHLIGHT_SQUARE_EL, 0, 20, "%");
     translateElement(HERO_VIDEO_EL, -50, 100, "px");
   }
+}
+
+function checkDateElement() {
+  const triggerBottom = (window.innerHeight / 5) * 4;
+
+  const boxTop = HERO_DATE_EL.getBoundingClientRect().top;
+
+  if (boxTop < triggerBottom) {
+    HERO_DATE_EL.classList.add("is-visible");
+    window.removeEventListener("scroll", checkDateElement);
+  }
+}
+
+function splitText(el, delay) {
+  el.forEach((line) => {
+    let word = line.querySelector(".text-splitter");
+    let charArray = word.textContent.split("");
+    word.innerHTML = "";
+    charArray.forEach((char) => {
+      let charEl = document.createElement("div");
+      charEl.classList.add("anim-char");
+      charEl.style.transitionDelay = `${delay}s`;
+      charEl.style.display = "inline-block";
+      charEl.textContent = char;
+      word.appendChild(charEl);
+      delay += 0.04;
+    });
+    word.classList.add("text-splitter--splitted");
+    delay -= 0.05;
+  });
 }
 
 function translateElement(element, start, finish, unit) {
