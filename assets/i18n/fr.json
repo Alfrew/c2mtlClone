@@ -38,5 +38,8 @@
   "navigation__tickets-title2": "C2 Connexions - trois jours",
   "navigation__tickets-title3": "C2 Connexions - une jour",
   "navigation__tickets-toggle": "Basculer l'onglet des billets",
-  "navigation__title": "C2 Montréal"
+  "navigation__title": "C2 Montréal",
+  "wordsCarousel__first": "Partager.",
+  "wordsCarousel__second": "Connecter.",
+  "wordsCarousel__third": "Apprendre."
 }
