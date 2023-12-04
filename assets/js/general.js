@@ -13,3 +13,35 @@ setTimeout(() => {
     el.classList.add("is-visible");
   });
 }, 1500);
+
+function elementIsVisible(element) {
+  const triggerBottom = (window.innerHeight / 5) * 4;
+
+  const boxTop = element.getBoundingClientRect().top;
+
+  if (boxTop < triggerBottom) {
+    element.classList.add("is-visible");
+    window.removeEventListener("scroll", () => {
+      elementIsVisible(element);
+    });
+  }
+}
+
+function textSplitter(el, delay) {
+  el.forEach((line) => {
+    let word = line.querySelector(".text-splitter");
+    let charArray = word.textContent.split("");
+    word.innerHTML = "";
+    charArray.forEach((char) => {
+      let charEl = document.createElement("div");
+      charEl.classList.add("anim-char");
+      charEl.style.transitionDelay = `${delay}s`;
+      charEl.style.display = "inline-block";
+      charEl.textContent = char;
+      word.appendChild(charEl);
+      delay += 0.04;
+    });
+    word.classList.add("text-splitter--splitted");
+    delay -= 0.05;
+  });
+}

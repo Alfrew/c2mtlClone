@@ -1094,6 +1094,24 @@ h4 {
   transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s linear;
 }
 
+.anim-square {
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.anim-char {
+  opacity: 0;
+  transform: translateY(10rem) rotateX(-90deg);
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s linear;
+}
+
+.is-visible .anim-square {
+  transform: translateY(0);
+}
+.is-visible .anim-char {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
 .is-visible .anim-fade {
   opacity: 1;
   transform: translateY(0);
@@ -1396,25 +1414,6 @@ img {
   left: -1rem;
   right: -1rem;
   top: 0;
-}
-
-.anim-square {
-  transform: translateY(100%);
-  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.anim-char {
-  opacity: 0;
-  transform: translateY(10rem) rotateX(-90deg);
-  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s linear;
-}
-
-.is-visible .anim-square {
-  transform: translateY(0);
-}
-.is-visible .anim-char {
-  opacity: 1;
-  transform: translateY(0) rotateX(0);
 }
 
 @media screen and (min-width: 768px) {
