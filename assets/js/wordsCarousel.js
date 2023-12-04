@@ -59,6 +59,7 @@ function animateText() {
 // Ho il dubbio che potrebbe non essere giusto usare il top e l'height per guidare le animazioni, questo siccome l'ultima parola tende a non comparire
 // Dividendo l'height per 2 sembra migliorare l'animazione di uscita delle lettere (saltando completamente quella di entrata)
 // Si necessita anche un buffer in uscita affinchè l'animazione finale finisca prima che l'elemento successivo al contenitore compaia
+// Controlla la parallax asset
 function animateWords(wordArray, containerTop, containerHeight) {
   let Lw = wordArray.length;
   let buffer = 100 * Lw; // Usato per evitare che l'animazione parti non appena la parte superiore dell'elemento contenitore tocchi il bordo della finestra superiore
