@@ -36,6 +36,10 @@ p {
   text-transform: uppercase;
 }
 
+.bg-white {
+  background-color: $light-color;
+}
+
 .btn {
   position: relative;
   border-radius: 0.5rem;
