@@ -19,7 +19,6 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        opacity: 1;
         text-align: center;
         white-space: nowrap;
         -webkit-backface-visibility: hidden;
@@ -31,6 +30,11 @@
         translate: none;
         visibility: inherit;
         .words-carousel__item-words {
+          position: relative;
+          display: inline-block;
+          rotate: none;
+          scale: none;
+          translate: none;
         }
       }
     }

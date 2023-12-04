@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/scss/style.css">
+</head>
+
+<body>
+  <!-- <div class="content"></div>
+  <div class="output"></div> -->
+  <!-- <div class="box"></div> -->
+
+  <div class="words-carousel">
+    <div class="words-carousel__inner">
+      <ul class="words-carousel__list">
+        <li class="words-carousel__item h1">
+          <span class="text-splitter" aria-hidden="true" data-i18n="wordsCarousel__first">Share.</span>
+        </li>
+        <li class="words-carousel__item h1">
+          <span class="text-splitter" aria-hidden="true" data-i18n="wordsCarousel__first">Connect.</span>
+        </li>
+        <li class="words-carousel__item h1">
+          <span class="text-splitter" aria-hidden="true" data-i18n="wordsCarousel__first">Learn.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>// https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+    const scale = (num, in_min, in_max, out_min, out_max) => {
+      return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+    };</script>
+  <script src="assets/js/wordsCarousel.js"></script>
+</body>
+
+</html>

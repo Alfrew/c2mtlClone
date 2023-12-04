@@ -9,8 +9,8 @@ const DATE_ANIM_TEXT_LIST = HERO_DATE_EL.querySelectorAll(".anim-text");
 const TITLE_ANIM_TEXT_LIST = HERO_TITLE_EL.querySelectorAll(".anim-text");
 
 setTimeout(() => {
-  splitText(TITLE_ANIM_TEXT_LIST, 0.15);
-  splitText(DATE_ANIM_TEXT_LIST, 0.0);
+  splitHeroText(TITLE_ANIM_TEXT_LIST, 0.15);
+  splitHeroText(DATE_ANIM_TEXT_LIST, 0.0);
 }, 1400);
 setTimeout(() => {
   HERO_TITLE_EL.classList.add("is-visible");
@@ -46,7 +46,7 @@ function checkDateElement() {
   }
 }
 
-function splitText(el, delay) {
+function splitHeroText(el, delay) {
   el.forEach((line) => {
     let word = line.querySelector(".text-splitter");
     let charArray = word.textContent.split("");
