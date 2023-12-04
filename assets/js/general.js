@@ -13,6 +13,11 @@ setTimeout(() => {
     el.classList.add("is-visible");
   });
 }, 1500);
+PARALLAX_ASSET_LIST.forEach((el) => {
+  window.addEventListener("scroll", () => {
+    parallaxAsset(el);
+  });
+});
 
 function elementIsVisible(element) {
   const triggerBottom = (window.innerHeight / 5) * 4;
@@ -45,3 +50,23 @@ function textSplitter(el, delay) {
     delay -= 0.05;
   });
 }
+
+function parallaxAsset(element) {
+  let child = element.querySelector(".parallax-asset__wrapper");
+  let windowHeight = window.innerHeight;
+  let elTop = element.getBoundingClientRect().top;
+  let elHeight = element.getBoundingClientRect().height;
+  let translateY = scale(elTop, windowHeight, -elHeight, -10, 10);
+  if (elTop > windowHeight) {
+    translateY = -10;
+  }
+  if (elTop < -elHeight) {
+    translateY = 10;
+  }
+  child.style.transform = `translateY(${translateY}%)`;
+}
+
+// https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+const scale = (num, in_min, in_max, out_min, out_max) => {
+  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+};
