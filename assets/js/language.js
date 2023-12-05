@@ -20,8 +20,8 @@ function updateContent(langData) {
 
 // Function to update aria label based on selected language
 function updateAriaLabel(langData) {
-  document.querySelectorAll("[data-btni18n]").forEach((element) => {
-    const key = element.getAttribute("data-btni18n");
+  document.querySelectorAll("[data-labeli18n]").forEach((element) => {
+    const key = element.getAttribute("data-labeli18n");
     element.ariaLabel = langData[key];
   });
 }

@@ -1019,8 +1019,9 @@ h4 {
   text-transform: uppercase;
 }
 
-.bg-white {
-  background-color: #ffffff;
+.bg-light {
+  background-color: #f2f2f2;
+  color: #141414;
 }
 
 .btn {
@@ -1740,6 +1741,87 @@ img {
   }
   .featured-content .featured-content__item .featured-content__item-wrapper .featured-content__item-inner .featured-content__item-btn {
     display: flex;
+  }
+}
+.featured-partners .partners .partners__title {
+  grid-column: 1/span 3;
+  padding-bottom: 2.2rem;
+  padding-top: 0.6rem;
+}
+.featured-partners .partners .partners__wrapper {
+  display: flex;
+  align-items: center;
+  grid-column: 4/span 3;
+  justify-content: flex-end;
+  padding-bottom: 2.2rem;
+}
+.featured-partners .partners .partners__wrapper .partners__subtitle {
+  display: none;
+}
+.featured-partners .partners .partners__list {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/span 6;
+  row-gap: 0.3rem;
+}
+.featured-partners .partners .partners__list .partners__item {
+  flex: 1;
+}
+.featured-partners .partners .partners__list .partners__item .partners__item-link {
+  position: relative;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  height: 0;
+  padding-bottom: 72.67606%;
+}
+.featured-partners .partners .partners__list .partners__item .partners__item-link .partners__item-fig {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .featured-partners .partners .partners__wrapper {
+    justify-content: space-between;
+  }
+  .featured-partners .partners .partners__wrapper .partners__subtitle {
+    display: block;
+  }
+  .featured-partners .partners .partners__list {
+    -moz-column-gap: 0.3rem;
+    column-gap: 0.3rem;
+    flex-direction: row;
+    row-gap: normal;
+  }
+  .featured-partners .partners .partners__list .partners__item {
+    flex: 0.5;
+  }
+  .featured-partners .partners .partners__list .partners__item .partners__item-link {
+    padding-bottom: 100%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .featured-partners .partners .partners__title {
+    grid-column: 1/span 6;
+    padding-top: 0;
+  }
+  .featured-partners .partners .partners__wrapper {
+    grid-column: 7/span 6;
+  }
+  .featured-partners .partners .partners__wrapper .partners__subtitle {
+    display: block;
+  }
+  .featured-partners .partners .partners__list {
+    grid-column: 1/span 12;
+  }
+  .featured-partners .partners .partners__list .partners__item {
+    flex: 1;
   }
 }
 body {
