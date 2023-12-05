@@ -2053,6 +2053,7 @@ img {
   margin-left: auto;
   width: 10.5rem;
   height: 10.5rem;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .footer .footer__row--bottom .footer__tickets .footer-tickets-btn .footer-tickets-btn__arrow .line {
   position: absolute;
@@ -2070,6 +2071,11 @@ img {
   left: 10.5rem;
   width: 14.84rem;
   rotate: 135deg;
+}
+@media (hover: hover) {
+  .footer .footer__row--bottom .footer__tickets .footer-tickets-btn:hover .footer-tickets-btn__arrow {
+    transform: translate(150%, -150%);
+  }
 }
 
 @media screen and (min-width: 768px) {

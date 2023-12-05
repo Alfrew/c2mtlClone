@@ -238,6 +238,7 @@
           margin-left: auto;
           width: 10.5rem;
           height: 10.5rem;
+          transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
           .line {
             position: absolute;
             left: 0rem;
@@ -254,6 +255,11 @@
             left: 10.5rem;
             width: 14.84rem;
             rotate: 135deg;
+          }
+        }
+        @include hover() {
+          .footer-tickets-btn__arrow {
+            transform: translate(150%, -150%);
           }
         }
       }
