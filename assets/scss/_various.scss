@@ -36,8 +36,9 @@ h4 {
   text-transform: uppercase;
 }
 
-.bg-white {
-  background-color: $light-color;
+.bg-light {
+  background-color: $bg-light-color;
+  color: $dark-color;
 }
 
 .btn {
