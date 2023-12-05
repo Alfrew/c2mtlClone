@@ -1,3 +1,4 @@
+const FOOTER_TICKETS_BTN_EL = document.querySelector(".footer-tickets-btn");
 const HEADER_EL = document.querySelector(".header");
 const HERO_TICKETS_TOGGLE_EL = document.querySelector(".home-hero-cta__btn");
 const NAV_EL = document.querySelector(".nav");
@@ -16,6 +17,7 @@ let transitionEnd = whichTransitionEvent();
 setTimeout(() => {
   HEADER_EL.classList.add("header--visible");
 }, 1500);
+FOOTER_TICKETS_BTN_EL.addEventListener("click", toggleTicketMenu);
 HERO_TICKETS_TOGGLE_EL.addEventListener("click", toggleTicketMenu);
 NAV_TOGGLE_EL.addEventListener("click", toggleNavMenu);
 TICKETS_BTN_EL.addEventListener("click", toggleTicketMenu);

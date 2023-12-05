@@ -1,5 +1,5 @@
-const EN_ELEMENT = document.getElementById("english");
-const FR_ELEMENT = document.getElementById("french");
+const EN_ELEMENT_LIST = document.querySelectorAll(".english-selector");
+const FR_ELEMENT_LIST = document.querySelectorAll(".french-selector");
 
 // Call updateContent() on page load
 window.addEventListener("DOMContentLoaded", async () => {
@@ -50,12 +50,20 @@ async function changeLanguage(lang) {
 function hideLanguages(language) {
   switch (language) {
     case "en":
-      EN_ELEMENT.classList.add("d-none");
-      FR_ELEMENT.classList.remove("d-none");
+      EN_ELEMENT_LIST.forEach((el) => {
+        el.classList.add("d-none");
+      });
+      FR_ELEMENT_LIST.forEach((el) => {
+        el.classList.remove("d-none");
+      });
       break;
     case "fr":
-      FR_ELEMENT.classList.add("d-none");
-      EN_ELEMENT.classList.remove("d-none");
+      FR_ELEMENT_LIST.forEach((el) => {
+        el.classList.add("d-none");
+      });
+      EN_ELEMENT_LIST.forEach((el) => {
+        el.classList.remove("d-none");
+      });
       break;
   }
 }
