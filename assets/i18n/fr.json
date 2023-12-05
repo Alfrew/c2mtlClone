@@ -5,6 +5,16 @@
   "countdown__minutes": "m",
   "countdown__seconds": "s",
   "countdown__title": "Début dans",
+  "featContent__btn": "En savoir plus",
+  "featContent__copy1": "Le concours Entrepreneur.e.s émergent.e.s en est à sa 12e édition et est à la recherche de sa prochaine cohorte d'entreprises en démarrage.",
+  "featContent__copy2": "C2² ouvre les portes de C2 Montréal à la prochaine génération de leaders d'affaires montréalais.",
+  "featContent__title1": "Les start-ups québécoises les plus prometteuses",
+  "featContent__title2": "C2² les leaders d’affaires de demain",
+  "featPartners__btn": "Devenir partenaire",
+  "featPartners__cirque": "Hyperlink to Cirque du soleil",
+  "featPartners__sidlee": "Hyperlink to Sidlee",
+  "featPartners__subtitle": "Mettez votre entreprise de l’avant",
+  "featPartners__title": "Imaginé par & Partenaire fondateur",
   "homeBraindates__copy": "Assez des présentations immaculées, des idées unidirectionnelles et des virages à 180 degrés. Cette fois-ci ce sont vos histoires, vos points de vue qui seront au cœur de nos expériences. On rassemble des humains de divers horizons pour susciter le dialogue, l’empathie et voir naître des collaborations surprenantes.",
   "homeBraindates__title": "À l’intersection de perspectives inusitées, un nouveau monde prend forme.",
   "homeHero__btn": "Acheter",
@@ -52,10 +62,5 @@
   "navigation__tickets-title2": "C2 Connexions - trois jours",
   "navigation__tickets-title3": "C2 Connexions - une jour",
   "navigation__tickets-toggle": "Basculer l'onglet des billets",
-  "navigation__title": "C2 Montréal",
-  "featContent__title1": "Les start-ups québécoises les plus prometteuses",
-  "featContent__copy1": "Le concours Entrepreneur.e.s émergent.e.s en est à sa 12e édition et est à la recherche de sa prochaine cohorte d'entreprises en démarrage.",
-  "featContent__title2": "C2² les leaders d’affaires de demain",
-  "featContent__copy2": "C2² ouvre les portes de C2 Montréal à la prochaine génération de leaders d'affaires montréalais.",
-  "featContent__btn": "En savoir plus"
+  "navigation__title": "C2 Montréal"
 }
