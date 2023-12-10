@@ -21,10 +21,12 @@ PARALLAX_ASSET_LIST.forEach((el) => {
 
 function elementIsVisible(element) {
   const triggerBottom = (window.innerHeight / 5) * 4;
+  const triggerRight = window.innerWidth;
 
   const boxTop = element.getBoundingClientRect().top;
+  const boxLeft = element.getBoundingClientRect().left;
 
-  if (boxTop < triggerBottom) {
+  if (boxTop < triggerBottom && boxLeft < triggerRight) {
     element.classList.add("is-visible");
     window.removeEventListener("scroll", () => {
       elementIsVisible(element);

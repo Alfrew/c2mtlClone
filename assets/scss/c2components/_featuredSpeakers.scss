@@ -34,6 +34,8 @@
       .featured-speakers__list {
         .speaker-item {
           grid-column-end: span 6;
+          transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+
           .speaker-item__wrapper {
             display: flex;
             flex-direction: column;
@@ -195,6 +197,10 @@
         }
         &.featured-speakers__btn--hidden {
           pointer-events: none;
+          &:before {
+            transform: scale(0);
+            transition-delay: 0.25s;
+          }
 
           .featured-speakers__btn-arrow {
             .line {
@@ -207,7 +213,6 @@
           position: absolute;
           height: 2.1rem;
           aspect-ratio: 1;
-          transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
 
           .line {
             position: absolute;
@@ -217,21 +222,21 @@
             height: 0.1rem;
             background-color: $dark-color;
             transform-origin: left;
-            transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
-            transition-delay: 0.1s;
+            transition: transform 0.25s cubic-bezier(1, 0, 0.25, 0.995);
+            transition-delay: 0s;
 
             &:nth-child(2) {
               width: 75%;
               top: 0%;
               right: -25%;
               rotate: 45deg;
-              transition-delay: 0.3s;
+              transition-delay: 0.08s;
             }
             &:nth-child(3) {
               width: 75%;
               right: -75%;
               rotate: -225deg;
-              transition-delay: 0.5s;
+              transition-delay: 0.16s;
             }
           }
         }
@@ -248,7 +253,7 @@
       .featured-speakers__list-wrapper {
         position: relative;
         .featured-speakers__list {
-          overflow-x: scroll;
+          overflow: hidden;
           position: relative;
           &.grid {
             grid-gap: initial;

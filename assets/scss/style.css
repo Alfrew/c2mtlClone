@@ -1606,6 +1606,7 @@ img {
 }
 .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__list .speaker-item {
   grid-column-end: span 6;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__list .speaker-item .speaker-item__wrapper {
   display: flex;
@@ -1758,6 +1759,10 @@ img {
 .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__btn.featured-speakers__btn--hidden {
   pointer-events: none;
 }
+.featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__btn.featured-speakers__btn--hidden:before {
+  transform: scale(0);
+  transition-delay: 0.25s;
+}
 .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__btn.featured-speakers__btn--hidden .featured-speakers__btn-arrow .line {
   transform: scaleX(0);
 }
@@ -1765,7 +1770,6 @@ img {
   position: absolute;
   height: 2.1rem;
   aspect-ratio: 1;
-  transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
 }
 .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__btn .featured-speakers__btn-arrow .line {
   position: absolute;
@@ -1775,21 +1779,21 @@ img {
   height: 0.1rem;
   background-color: #141414;
   transform-origin: left;
-  transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
-  transition-delay: 0.1s;
+  transition: transform 0.25s cubic-bezier(1, 0, 0.25, 0.995);
+  transition-delay: 0s;
 }
 .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__btn .featured-speakers__btn-arrow .line:nth-child(2) {
   width: 75%;
   top: 0%;
   right: -25%;
   rotate: 45deg;
-  transition-delay: 0.3s;
+  transition-delay: 0.08s;
 }
 .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__btn .featured-speakers__btn-arrow .line:nth-child(3) {
   width: 75%;
   right: -75%;
   rotate: -225deg;
-  transition-delay: 0.5s;
+  transition-delay: 0.16s;
 }
 
 @media screen and (max-width: 991px) {
@@ -1800,7 +1804,7 @@ img {
     position: relative;
   }
   .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__list {
-    overflow-x: scroll;
+    overflow: hidden;
     position: relative;
   }
   .featured-speakers .featured-speakers__wrapper .featured-speakers__list-wrapper .featured-speakers__list.grid {
