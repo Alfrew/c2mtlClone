@@ -1,10 +1,11 @@
 const EN_ELEMENT_LIST = document.querySelectorAll(".english-selector");
 const FR_ELEMENT_LIST = document.querySelectorAll(".french-selector");
+let langData;
 
 // Call updateContent() on page load
 window.addEventListener("DOMContentLoaded", async () => {
   const userPreferredLanguage = localStorage.getItem("language") || "en";
-  const langData = await fetchLanguageData(userPreferredLanguage);
+  langData = await fetchLanguageData(userPreferredLanguage);
   hideLanguages(userPreferredLanguage);
   updateContent(langData);
   updateAriaLabel(langData);

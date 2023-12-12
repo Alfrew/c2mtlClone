@@ -182,6 +182,7 @@ function toggleNavMenu() {
       closeTicketsMenu();
     }
   }
+  setTimeout(bodyHasModal, 850);
 }
 
 function toggleTicketMenu() {
@@ -197,6 +198,7 @@ function toggleTicketMenu() {
       closeNavMenu();
     }
   }
+  setTimeout(bodyHasModal, 850);
 }
 
 function whichTransitionEvent() {
@@ -213,5 +215,20 @@ function whichTransitionEvent() {
     if (el.style[t] !== undefined) {
       return transitions[t];
     }
+  }
+}
+
+function bodyHasModal() {
+  let isMenuOpen =
+    TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_OPEN_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("nav--open");
+  let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
+  let isModalOpen = document.querySelector(".speaker-modal");
+
+  console.log(isMenuOpen, isModalOpen, isNavOpen);
+
+  if (isMenuOpen || isNavOpen || !!isModalOpen) {
+    document.body.classList.add("modal-open");
+  } else {
+    document.body.classList.remove("modal-open");
   }
 }
