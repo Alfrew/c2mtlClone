@@ -242,6 +242,7 @@ img {
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .anim-char {
+  display: inline-block;
   opacity: 0;
   transform: translateY(10rem) rotateX(-90deg);
   transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s linear;

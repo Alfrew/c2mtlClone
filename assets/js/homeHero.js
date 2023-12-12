@@ -9,8 +9,8 @@ const DATE_ANIM_TEXT_LIST = HERO_DATE_EL.querySelectorAll(".anim-text");
 const TITLE_ANIM_TEXT_LIST = HERO_TITLE_EL.querySelectorAll(".anim-text");
 
 setTimeout(() => {
-  textSplitter(TITLE_ANIM_TEXT_LIST, 0.15);
-  textSplitter(DATE_ANIM_TEXT_LIST, 0.0);
+  wordSplitter(TITLE_ANIM_TEXT_LIST, 0.15);
+  wordSplitter(DATE_ANIM_TEXT_LIST, 0.0);
 }, 1400);
 setTimeout(() => {
   HERO_TITLE_EL.classList.add("is-visible");
