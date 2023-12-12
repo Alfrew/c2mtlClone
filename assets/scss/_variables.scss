@@ -127,6 +127,12 @@ $points: "", "sm", "md", "lg", "xl", "xxl";
     }
   }
 }
+// mixin for hover media querie
+@mixin hasHover {
+  @media (hover: hover) {
+    @content;
+  }
+}
 
 //** MEDIA QUERIES VARIABLES  *********************************************************************
 // From 0px to...
