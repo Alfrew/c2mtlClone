@@ -29,6 +29,10 @@ h2 {
   font-size: 5rem;
   line-height: 0.85;
 }
+.h2--medium {
+  font-size: 4.5rem;
+  line-height: 0.8;
+}
 .h3,
 h3 {
   font-size: 2.4rem;
@@ -238,6 +242,7 @@ img {
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .anim-char {
+  display: inline-block;
   opacity: 0;
   transform: translateY(10rem) rotateX(-90deg);
   transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s linear;
@@ -287,6 +292,15 @@ img {
   h1 {
     font-size: 17.5rem;
     line-height: 1;
+  }
+  .h2,
+  h2 {
+    font-size: 15rem;
+    line-height: 0.8;
+  }
+  .h2--medium {
+    font-size: 7.5rem;
+    line-height: 0.8;
   }
   .h3,
   h3 {
