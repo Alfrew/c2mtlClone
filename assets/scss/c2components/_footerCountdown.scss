@@ -85,6 +85,11 @@
     .footer-countdown__container {
       .footer-countdown__wrapper {
         padding-bottom: 53.66906%;
+        .footer-countdown__bubbles-container {
+          .footer-countdown__bubble {
+            width: 25%;
+          }
+        }
       }
     }
   }
