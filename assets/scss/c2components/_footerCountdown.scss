@@ -65,13 +65,14 @@
       }
 
       .footer-countdown__bubbles-container {
-        .bubble {
+        .footer-countdown__bubble {
           position: absolute;
           aspect-ratio: 1;
           background: linear-gradient(270deg, rgba(217, 81, 90, 1) 20%, rgba(134, 176, 108, 1) 80%);
           border-radius: 100%;
           opacity: 0.75;
           width: 35%;
+          translate: -50% -50%;
           animation: footerBubble 15s ease-in-out infinite alternate;
         }
       }
@@ -114,6 +115,11 @@
                 }
               }
             }
+          }
+        }
+        .footer-countdown__bubbles-container {
+          .footer-countdown__bubble {
+            width: 20%;
           }
         }
       }

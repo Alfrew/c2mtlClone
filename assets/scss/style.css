@@ -2807,13 +2807,14 @@ img {
   font-size: 1.8rem;
   line-height: 1;
 }
-.footer-countdown .footer-countdown__container .footer-countdown__wrapper .footer-countdown__bubbles-container .bubble {
+.footer-countdown .footer-countdown__container .footer-countdown__wrapper .footer-countdown__bubbles-container .footer-countdown__bubble {
   position: absolute;
   aspect-ratio: 1;
   background: linear-gradient(270deg, rgb(217, 81, 90) 20%, rgb(134, 176, 108) 80%);
   border-radius: 100%;
   opacity: 0.75;
   width: 35%;
+  translate: -50% -50%;
   animation: footerBubble 15s ease-in-out infinite alternate;
 }
 
@@ -2841,6 +2842,9 @@ img {
   }
   .footer-countdown .footer-countdown__container .footer-countdown__wrapper .footer-countdown__inner .countdown.countdown--long-labels .countdown__unit-wrapper .countdown__label {
     padding-top: 3rem;
+  }
+  .footer-countdown .footer-countdown__container .footer-countdown__wrapper .footer-countdown__bubbles-container .footer-countdown__bubble {
+    width: 20%;
   }
 }
 @keyframes footerBubble {
