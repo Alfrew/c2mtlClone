@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   hideLanguages(userPreferredLanguage);
   updateContent(langData);
   updateAriaLabel(langData);
+  updateAlt(langData);
 });
 
 // Function to update content based on selected language
@@ -24,6 +25,14 @@ function updateAriaLabel(langData) {
   document.querySelectorAll("[data-labeli18n]").forEach((element) => {
     const key = element.getAttribute("data-labeli18n");
     element.ariaLabel = langData[key];
+  });
+}
+
+// Function to update aria label based on selected language
+function updateAlt(langData) {
+  document.querySelectorAll("[data-alti18n]").forEach((element) => {
+    const key = element.getAttribute("data-alti18n");
+    element.alt = langData[key];
   });
 }
 
