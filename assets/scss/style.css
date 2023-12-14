@@ -2477,8 +2477,15 @@ img {
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 2;
   height: 100%;
   width: 100%;
+  transform: translateY(100%);
+}
+.home-carousel .home-carousel__wrapper .home-carousel-images .home-carousel-images__wrapper .home-carousel-fig.home-carousel-fig--active {
+  z-index: 1;
+  transform: translateY(-30%);
+  transition: transform 1.2s cubic-bezier(1, 0, 0.3, 1);
 }
 .home-carousel .home-carousel__wrapper .home-carousel-images .home-carousel-images__wrapper .home-carousel-fig .home-carousel-fig img {
   border-radius: 0.5rem;

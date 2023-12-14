@@ -3,6 +3,7 @@ const ABOUT_NAV_EL = document.querySelector(".home-carousel-nav");
 const ABOUT_NEXT_BTN = document.querySelector(".home-carousel__btn--next");
 const ABOUT_PREV_BTN = document.querySelector(".home-carousel__btn--prev");
 const ABOUT_FIGS_EL = document.querySelector(".home-carousel__figs");
+const ABOUT_EL = document.getElementById("about");
 // LISTS
 const ABOUT_COPYS_LIST = document.querySelectorAll(".home-carousel-copy");
 const ABOUT_IMAGES_LIST = document.querySelectorAll(".home-carousel-images");
@@ -13,6 +14,12 @@ const ABOUT_NAV_BTN_LIST = ABOUT_NAV_EL.querySelectorAll(".home-carousel-nav__it
 const ABOUT_SMALL_FIGS_LIST = ABOUT_FIGS_EL.querySelectorAll(".home-carousel-fig");
 
 let aboutIndex = 0;
+ABOUT_FIGS_LIST[aboutIndex].style.transform = "translateY(0)";
+ABOUT_SMALL_FIGS_LIST[aboutIndex].style.transform = "translateY(0)";
+setTimeout(() => {
+  ABOUT_FIGS_LIST[aboutIndex].classList.add("home-carousel-fig--active");
+  ABOUT_SMALL_FIGS_LIST[aboutIndex].classList.add("home-carousel-fig--active");
+}, 1);
 ABOUT_COPYS_LIST[aboutIndex].classList.add("home-carousel-copy--active");
 ABOUT_NAV_BTN_LIST[aboutIndex].classList.add("home-carousel-nav__item-btn--active");
 ABOUT_TITLES_LIST[aboutIndex].classList.add("home-carousel-title--in");
@@ -69,8 +76,10 @@ function changeAboutSlide(i) {
   ABOUT_NAV_BTN_LIST[i].classList.add("home-carousel-nav__item-btn--active");
   ABOUT_TITLES_LIST[i].classList.add("home-carousel-title--in");
 
-  // todo: add scroll to top container
-  // todo: change image animation
+  changeAboutImages(i, ABOUT_SMALL_FIGS_LIST);
+  changeAboutImages(i, ABOUT_FIGS_LIST);
+
+  ABOUT_EL.scrollIntoView({ behavior: "smooth" });
 }
 
 function parallaxAbout(element, start, end) {
@@ -86,4 +95,23 @@ function parallaxAbout(element, start, end) {
     translateY = end;
   }
   element.style.transform = `translateY(${translateY}px)`;
+}
+
+function changeAboutImages(index, list) {
+  let activeFig = list[0].parentElement.querySelector(".home-carousel-fig--active");
+  list[index].style.transform = "translateY(-30%)";
+  activeFig.style.zIndex = "2";
+  setTimeout(() => {
+    list[index].classList.add("home-carousel-fig--active");
+    list[index].style.transform = "translateY(0%)";
+  }, 1);
+  activeFig.style.transform = "translateY(100%)";
+  activeFig.addEventListener(
+    transitionEnd,
+    () => {
+      activeFig.classList.remove("home-carousel-fig--active");
+      activeFig.style.zIndex = "";
+    },
+    { once: true }
+  );
 }
