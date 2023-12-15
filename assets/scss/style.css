@@ -752,7 +752,7 @@ button {
   padding-bottom: 1.8rem;
 }
 .tickets-nav .tickets-nav__list .tickets-nav__item .tickets-nav__item-copy {
-  color: #999;
+  color: #999999;
   max-width: 34rem;
 }
 .tickets-nav .tickets-nav__list .tickets-nav__item .tickets-nav__item-footer {
@@ -2529,7 +2529,7 @@ img {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: #0f0;
+  background-color: #00ff00;
   border-radius: 50%;
   height: 100%;
   width: 100%;
@@ -2687,7 +2687,7 @@ img {
   text-align: left;
 }
 .home-highlights .highlights .highlights__wrapper .highlights__list-wrapper .highlights__list .highlights-item .highlights-item__wrapper .highlights-item__inner .highlights-item__link .highlights-item__content .highlights-item__headline {
-  color: #999;
+  color: #999999;
   padding-bottom: 0.8rem;
 }
 .home-highlights .highlights .highlights__wrapper .highlights__list-wrapper .highlights__list .highlights-item .highlights-item__wrapper .highlights-item__inner .highlights-item__link .highlights-item__content .highlights-item__title {
