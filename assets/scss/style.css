@@ -3554,6 +3554,18 @@ body {
   background-color: rosybrown;
 }
 
+::-moz-selection {
+  background-color: #0f0;
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background-color: #0f0;
+  color: #fff;
+  text-shadow: none;
+}
+
 .content-wrapper {
   margin-top: 6rem;
   position: relative;
