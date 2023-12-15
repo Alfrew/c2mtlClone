@@ -12,7 +12,6 @@ const TICKETS_NAV_ITEMS = document.querySelectorAll(".tickets-nav__item");
 const TICKETS_NAV_WRAPPER_EL = document.querySelector(".nav-wrapper--tickets");
 const TICKETS_OPEN_LABEL_EL = document.querySelector(".tickets-toggle__label--open");
 const TICKETS_TOGGLE_EL = document.querySelector(".tickets-toggle");
-let transitionEnd = whichTransitionEvent();
 
 setTimeout(() => {
   HEADER_EL.classList.add("header--visible");
@@ -199,23 +198,6 @@ function toggleTicketMenu() {
     }
   }
   setTimeout(bodyHasModal, 850);
-}
-
-function whichTransitionEvent() {
-  let t;
-  let el = document.createElement("fakeEL");
-  let transitions = {
-    transition: "transitionend",
-    OTransition: "oTransitionEnd",
-    MozTransition: "transitionend",
-    WebkitTransition: "webkitTransitionEnd",
-  };
-
-  for (t in transitions) {
-    if (el.style[t] !== undefined) {
-      return transitions[t];
-    }
-  }
 }
 
 function bodyHasModal() {

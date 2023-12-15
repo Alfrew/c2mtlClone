@@ -40,5 +40,5 @@ function countdown(list) {
 }
 
 function removeModal() {
-  MODAL_EL.classList.remove("modal-countdown--visible");
+  COUNTDOWN_MODAL_EL.classList.remove("modal-countdown--visible");
 }

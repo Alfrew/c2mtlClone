@@ -1,6 +1,7 @@
 const IMG_LIST = document.querySelectorAll("img");
 const VIDEO_LIST = document.querySelectorAll("video");
 const PARALLAX_ASSET_LIST = document.querySelectorAll(".parallax-asset");
+let transitionEnd = whichTransitionEvent();
 
 IMG_LIST.forEach((img) => {
   img.addEventListener("load", img.classList.add("base-image__img--loaded"));
@@ -73,6 +74,23 @@ function textSplitter(el, delay) {
       word.classList.add("text-splitter--splitted");
     }
   });
+}
+
+function whichTransitionEvent() {
+  let t;
+  let el = document.createElement("fakeEL");
+  let transitions = {
+    transition: "transitionend",
+    OTransition: "oTransitionEnd",
+    MozTransition: "transitionend",
+    WebkitTransition: "webkitTransitionEnd",
+  };
+
+  for (t in transitions) {
+    if (el.style[t] !== undefined) {
+      return transitions[t];
+    }
+  }
 }
 
 function parallaxAsset(element) {
