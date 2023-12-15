@@ -1,9 +1,10 @@
+const ABOUT_EL = document.getElementById("about");
+const ABOUT_FIGS_EL = document.querySelector(".home-carousel__figs");
 const ABOUT_LEFT_EL = document.querySelector(".home-carousel-images");
 const ABOUT_NAV_EL = document.querySelector(".home-carousel-nav");
 const ABOUT_NEXT_BTN = document.querySelector(".home-carousel__btn--next");
 const ABOUT_PREV_BTN = document.querySelector(".home-carousel__btn--prev");
-const ABOUT_FIGS_EL = document.querySelector(".home-carousel__figs");
-const ABOUT_EL = document.getElementById("about");
+const FOLLOWER = document.querySelector(".cursor-follower");
 // LISTS
 const ABOUT_COPYS_LIST = document.querySelectorAll(".home-carousel-copy");
 const ABOUT_IMAGES_LIST = document.querySelectorAll(".home-carousel-images");
@@ -24,6 +25,13 @@ ABOUT_COPYS_LIST[aboutIndex].classList.add("home-carousel-copy--active");
 ABOUT_NAV_BTN_LIST[aboutIndex].classList.add("home-carousel-nav__item-btn--active");
 ABOUT_TITLES_LIST[aboutIndex].classList.add("home-carousel-title--in");
 
+ABOUT_EL.addEventListener("mouseenter", () => {
+  FOLLOWER.classList.add("cursor-follower--visible");
+});
+ABOUT_EL.addEventListener("mouseleave", () => {
+  FOLLOWER.classList.remove("cursor-follower--visible");
+});
+
 ABOUT_NEXT_BTN.addEventListener("click", () => {
   if (aboutIndex === ABOUT_TITLES_LIST.length - 1) {
     aboutIndex = 0;
@@ -40,6 +48,7 @@ ABOUT_PREV_BTN.addEventListener("click", () => {
   }
   changeAboutSlide(aboutIndex);
 });
+
 window.addEventListener("scroll", () => {
   elementIsVisible(ABOUT_NAV_EL);
   elementIsVisible(ABOUT_TITLES_LIST[0]);
@@ -47,20 +56,40 @@ window.addEventListener("scroll", () => {
     parallaxAbout(ABOUT_FIGS_EL, 200, -300);
   }
 });
+
 ABOUT_IMAGES_LIST.forEach((el) => {
   window.addEventListener("scroll", () => {
     elementIsVisible(el);
   });
 });
+
 setTimeout(() => {
   textSplitter(ABOUT_ANIM_TEXT_LIST, 0.0);
 }, 1400);
+
 ABOUT_NAV_BTN_LIST.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     aboutIndex = index;
     changeAboutSlide(index);
   });
 });
+
+document.body.onpointermove = (position) => {
+  FOLLOWER.animate(
+    {
+      top: `${position.clientY}px`,
+      left: `${position.clientX}px`,
+    },
+    { duration: 3000, fill: "forwards" }
+  );
+  if (position.clientX >= window.innerWidth / 2) {
+    FOLLOWER.classList.remove("cursor-follower--prev");
+    FOLLOWER.classList.add("cursor-follower--next");
+  } else {
+    FOLLOWER.classList.remove("cursor-follower--next");
+    FOLLOWER.classList.add("cursor-follower--prev");
+  }
+};
 
 function changeAboutSlide(i) {
   ABOUT_COPYS_LIST.forEach((el) => {

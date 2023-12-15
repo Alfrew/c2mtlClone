@@ -273,6 +273,96 @@
   }
 }
 
+.cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 650;
+  display: none;
+  height: 15rem;
+  margin-left: -7.5rem;
+  margin-top: -7.5rem;
+  width: 15rem;
+  pointer-events: none;
+
+  &.cursor-follower--visible {
+    .cursor-follower__wrapper {
+      transform: scale(1);
+      transition-duration: 0.8s;
+      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .cursor-follower__arrow {
+      .line {
+        transform: scale(1);
+      }
+    }
+  }
+  &.cursor-follower--prev {
+    .cursor-follower__arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  .cursor-follower__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(1, 0, 0.25, 0.995);
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #0f0;
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      transition: transform 1s cubic-bezier(1, 0, 0.25, 0.995);
+    }
+  }
+  .cursor-follower__arrow {
+    position: relative;
+    height: 3.8rem;
+    width: 3.8rem;
+    transition: transform 0.5s cubic-bezier(1, 0, 0.25, 0.995);
+
+    .line {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 100%;
+      height: 0.2rem;
+      background-color: $dark-color;
+      transform: scale(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(1, 0, 0.25, 0.995);
+      transition-delay: 0.1s;
+
+      &:nth-child(2) {
+        width: 75%;
+        top: -3%;
+        right: -26%;
+        rotate: 45deg;
+        transition-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        width: 75%;
+        right: -78%;
+        rotate: -225deg;
+        transition-delay: 0.3s;
+      }
+    }
+  }
+
+  @include hasHover() {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .home-carousel {
     .home-carousel__wrapper {
