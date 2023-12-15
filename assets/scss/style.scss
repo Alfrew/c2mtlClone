@@ -4,6 +4,12 @@ body {
   background-color: rosybrown;
 }
 
+::selection {
+  background-color: #0f0;
+  color: #fff;
+  text-shadow: none;
+}
+
 .content-wrapper {
   margin-top: 6rem;
   position: relative;

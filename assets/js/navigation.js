@@ -64,51 +64,88 @@ function arrowLeave() {
   }
 }
 
-function closeNavMenu() {
-  NAV_TOGGLE_EL.classList.remove("nav-toggle--close");
+function bodyHasModal() {
+  let isMenuOpen =
+    TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_OPEN_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("nav--open");
+  let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
+  let isModalOpen = document.querySelector(".speaker-modal");
 
-  NAV_EL.classList.add("nav-leave-active");
-  setTimeout(() => {
-    NAV_EL.classList.add("nav-leave-to");
-  }, 10);
-  NAV_WRAP_ALT_EL.addEventListener(
-    transitionEnd,
-    () => {
-      NAV_EL.classList.remove("nav-leave-active", "nav-leave-to", "nav--open");
-      NAV_EL.classList.add("d-none");
-    },
-    { once: true }
-  );
+  console.log(isMenuOpen, isModalOpen, isNavOpen);
+
+  if (isMenuOpen || isNavOpen || !!isModalOpen) {
+    document.body.classList.add("modal-open");
+  } else {
+    document.body.classList.remove("modal-open");
+  }
+}
+
+function closeNavMenu() {
+  let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
+  if (isNavOpen) {
+    NAV_TOGGLE_EL.classList.remove("nav-toggle--close");
+
+    NAV_EL.classList.add("nav-leave-active");
+    setTimeout(() => {
+      NAV_EL.classList.add("nav-leave-to");
+    }, 10);
+    NAV_WRAP_ALT_EL.addEventListener(
+      transitionEnd,
+      () => {
+        NAV_EL.classList.remove("nav-leave-active", "nav-leave-to", "nav--open");
+        NAV_EL.classList.add("d-none");
+      },
+      { once: true }
+    );
+  }
 }
 
 function closeTicketsMenu() {
-  TICKETS_TOGGLE_EL.classList.remove("tickets-toggle--close");
+  let isTicketsNavOpen =
+    TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_OPEN_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("nav--open");
 
-  TICKETS_OPEN_LABEL_EL.classList.remove("hidden");
-  TICKETS_OPEN_LABEL_EL.classList.add("tickets-toggle-labels-enter-to");
-  TICKETS_CLOSE_LABEL_EL.classList.add("tickets-toggle-labels-leave-active", "tickets-toggle-labels-leave-to");
-  TICKETS_CLOSE_LABEL_EL.addEventListener(
-    transitionEnd,
-    () => {
-      TICKETS_OPEN_LABEL_EL.classList.remove("tickets-toggle-labels-enter-active", "tickets-toggle-labels-enter-to");
-      TICKETS_CLOSE_LABEL_EL.classList.remove("tickets-toggle-labels-leave-active", "tickets-toggle-labels-leave-to");
-      TICKETS_CLOSE_LABEL_EL.classList.add("hidden", "tickets-toggle-labels-enter-active");
-    },
-    { once: true }
-  );
+  if (isTicketsNavOpen) {
+    TICKETS_TOGGLE_EL.classList.remove("tickets-toggle--close");
 
-  TICKETS_NAV_EL.classList.add("nav-leave-active");
-  setTimeout(() => {
-    TICKETS_NAV_EL.classList.add("nav-leave-to");
-  }, 10);
-  TICKETS_NAV_ITEMS[1].addEventListener(
-    transitionEnd,
-    () => {
-      TICKETS_NAV_EL.classList.remove("nav-leave-active", "nav-leave-to", "nav--open");
-      TICKETS_NAV_EL.classList.add("d-none");
-    },
-    { once: true }
-  );
+    TICKETS_OPEN_LABEL_EL.classList.remove("hidden");
+    TICKETS_OPEN_LABEL_EL.classList.add("tickets-toggle-labels-enter-to");
+    TICKETS_CLOSE_LABEL_EL.classList.add("tickets-toggle-labels-leave-active", "tickets-toggle-labels-leave-to");
+    TICKETS_CLOSE_LABEL_EL.addEventListener(
+      transitionEnd,
+      () => {
+        TICKETS_OPEN_LABEL_EL.classList.remove("tickets-toggle-labels-enter-active", "tickets-toggle-labels-enter-to");
+        TICKETS_CLOSE_LABEL_EL.classList.remove("tickets-toggle-labels-leave-active", "tickets-toggle-labels-leave-to");
+        TICKETS_CLOSE_LABEL_EL.classList.add("hidden", "tickets-toggle-labels-enter-active");
+      },
+      { once: true }
+    );
+
+    TICKETS_NAV_EL.classList.add("nav-leave-active");
+    setTimeout(() => {
+      TICKETS_NAV_EL.classList.add("nav-leave-to");
+    }, 10);
+    TICKETS_NAV_ITEMS[1].addEventListener(
+      transitionEnd,
+      () => {
+        TICKETS_NAV_EL.classList.remove("nav-leave-active", "nav-leave-to", "nav--open");
+        TICKETS_NAV_EL.classList.add("d-none");
+      },
+      { once: true }
+    );
+  }
+}
+
+function createOverlay() {
+  if (!!!document.querySelector(".content-overlay")) {
+    let overlay = document.createElement("button");
+    overlay.classList.add("content-overlay");
+    document.body.appendChild(overlay);
+    overlay.addEventListener("click", () => {
+      closeNavMenu();
+      closeTicketsMenu();
+      setTimeout(bodyHasModal, 850);
+      overlay.remove();
+    });
+  }
 }
 
 function openNavMenu() {
@@ -133,6 +170,7 @@ function openNavMenu() {
     },
     { once: true }
   );
+  createOverlay();
 }
 
 function openTicketsMenu() {
@@ -169,12 +207,14 @@ function openTicketsMenu() {
     },
     { once: true }
   );
+  createOverlay();
 }
 
 function toggleNavMenu() {
   let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
   if (isNavOpen) {
     closeNavMenu();
+    document.querySelector(".content-overlay").remove();
   } else {
     openNavMenu();
     if (TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close")) {
@@ -191,6 +231,7 @@ function toggleTicketMenu() {
     !TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_CLOSE_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("d-none");
   if (isMenuOpen) {
     closeTicketsMenu();
+    document.querySelector(".content-overlay").remove();
   } else if (isMenuClosed) {
     openTicketsMenu();
     if (NAV_TOGGLE_EL.classList.contains("nav-toggle--close")) {
@@ -198,19 +239,4 @@ function toggleTicketMenu() {
     }
   }
   setTimeout(bodyHasModal, 850);
-}
-
-function bodyHasModal() {
-  let isMenuOpen =
-    TICKETS_TOGGLE_EL.classList.contains("tickets-toggle--close") && TICKETS_OPEN_LABEL_EL.classList.contains("hidden") && TICKETS_NAV_EL.classList.contains("nav--open");
-  let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
-  let isModalOpen = document.querySelector(".speaker-modal");
-
-  console.log(isMenuOpen, isModalOpen, isNavOpen);
-
-  if (isMenuOpen || isNavOpen || !!isModalOpen) {
-    document.body.classList.add("modal-open");
-  } else {
-    document.body.classList.remove("modal-open");
-  }
 }
