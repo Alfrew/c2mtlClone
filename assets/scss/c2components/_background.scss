@@ -1,0 +1,125 @@
+.background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100lvh;
+  pointer-events: none;
+
+  .background__wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+
+    &.background__wrapper--peach {
+      z-index: 1;
+      .background__inner {
+        background: linear-gradient(90deg, #ed6339, #fa5ca6 42%, #eb7d2e);
+      }
+      .background__inner--intro {
+        transform: translateY(calc(-100% - 6rem));
+        transition-delay: 0.6s;
+      }
+    }
+    &.background__wrapper--blue {
+      width: 100%;
+      .background__inner {
+        background: linear-gradient(-40deg, #27249c -9.14%, #177aee 46.7%, #4a19d2 86.65%);
+      }
+      .background__inner--intro {
+        transform: translateY(-100%);
+        transition-delay: 0.1s;
+        transition-duration: 1.49s;
+      }
+    }
+    &.background__wrapper--mobile {
+      top: 100%;
+      height: 100lvh;
+      transition: visibility 0s 0.9s;
+      visibility: hidden;
+    }
+
+    .background__inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      height: 100%;
+      width: 100%;
+      transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &.background__wrapper--visible {
+      .background__inner {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.logo-c2mtl {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100lvh;
+  overflow: hidden;
+  mix-blend-mode: difference;
+  transform: translateY(-100%);
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.logo-c2mtl--visible {
+    transform: translateY(0);
+
+    .logo-c2mtl__wrapper {
+      transform: translateY(0);
+    }
+  }
+
+  .logo-c2mtl__wrapper {
+    height: 100%;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .background {
+    .background__wrapper {
+      &.background__wrapper--peach {
+        top: 6rem;
+        height: 0;
+        padding-bottom: 44.53333%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include for-size("lg") {
+  .background {
+    height: 100%;
+
+    .background__wrapper {
+      &.background__wrapper--peach {
+        width: calc(50% - 3rem);
+        .background__inner--intro {
+          transform: translateY(100%);
+          transition-delay: 0s;
+        }
+      }
+      &.background__wrapper--mobile {
+        display: none;
+      }
+
+      &.background__wrapper--visible {
+        .background__inner {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
