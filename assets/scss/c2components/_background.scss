@@ -37,8 +37,6 @@
     &.background__wrapper--mobile {
       top: 100%;
       height: 100lvh;
-      transition: visibility 0s 0.9s;
-      visibility: hidden;
     }
 
     .background__inner {
@@ -75,10 +73,22 @@
 
     .logo-c2mtl__wrapper {
       transform: translateY(0);
+
+      .bubble {
+        transform: scale(1);
+      }
+    }
+  }
+  &.logo-c2mtl--bubble-animate {
+    .logo-c2mtl__wrapper {
+      .bubble {
+        animation: bgBubble 7.5s ease-in-out infinite alternate;
+      }
     }
   }
 
   .logo-c2mtl__wrapper {
+    position: relative;
     height: 100%;
     width: 100%;
     transform: translateY(100%);
@@ -96,66 +106,79 @@
           top: 31%;
           left: 85%;
           animation-delay: 0.1s;
+          transition-delay: 0.1s;
         }
         &:nth-child(2) {
           top: 18%;
           left: 74%;
           animation-delay: 0.2s;
+          transition-delay: 0.2s;
         }
         &:nth-child(3) {
           top: 14%;
           left: 63%;
           animation-delay: 0.3s;
+          transition-delay: 0.3s;
         }
         &:nth-child(4) {
           top: 15%;
           left: 50%;
           animation-delay: 0.4s;
+          transition-delay: 0.4s;
         }
         &:nth-child(5) {
           top: 23%;
           left: 37%;
           animation-delay: 0.5s;
+          transition-delay: 0.5s;
         }
         &:nth-child(6) {
           top: 35%;
           left: 30%;
           animation-delay: 0.6s;
+          transition-delay: 0.6s;
         }
         &:nth-child(7) {
           top: 50%;
           left: 25%;
           animation-delay: 0.7s;
+          transition-delay: 0.7s;
         }
         &:nth-child(8) {
           top: 65%;
           left: 30%;
           animation-delay: 0.8s;
+          transition-delay: 0.8s;
         }
         &:nth-child(9) {
           top: 77%;
           left: 37%;
           animation-delay: 0.9s;
+          transition-delay: 0.9s;
         }
         &:nth-child(10) {
           top: 85%;
           left: 50%;
           animation-delay: 1s;
+          transition-delay: 1s;
         }
         &:nth-child(11) {
           top: 86%;
           left: 63%;
           animation-delay: 1.1s;
+          transition-delay: 1.1s;
         }
         &:nth-child(12) {
           top: 82%;
           left: 74%;
           animation-delay: 1.2s;
+          transition-delay: 1.2s;
         }
         &:nth-child(13) {
           top: 69%;
           left: 85%;
           animation-delay: 1.3s;
+          transition-delay: 1.3s;
         }
       }
     }
@@ -171,66 +194,79 @@
           top: 31%;
           left: 15%;
           animation-delay: 1.4s;
+          transition-delay: 1.4s;
         }
         &:nth-child(2) {
           top: 17%;
           left: 26%;
           animation-delay: 1.5s;
+          transition-delay: 1.5s;
         }
         &:nth-child(3) {
           top: 14%;
           left: 40%;
           animation-delay: 1.6s;
+          transition-delay: 1.6s;
         }
         &:nth-child(4) {
           top: 17%;
           left: 56%;
           animation-delay: 1.7s;
+          transition-delay: 1.7s;
         }
         &:nth-child(5) {
           top: 28%;
           left: 66%;
           animation-delay: 1.8s;
+          transition-delay: 1.8s;
         }
         &:nth-child(6) {
           top: 44%;
           left: 60%;
           animation-delay: 1.9s;
+          transition-delay: 1.9s;
         }
         &:nth-child(7) {
           top: 54%;
           left: 48%;
           animation-delay: 2s;
+          transition-delay: 2s;
         }
         &:nth-child(8) {
           top: 62%;
           left: 33%;
           animation-delay: 2.1s;
+          transition-delay: 2.1s;
         }
         &:nth-child(9) {
           top: 73%;
           left: 23%;
           animation-delay: 2.2s;
+          transition-delay: 2.2s;
         }
         &:nth-child(10) {
           top: 86%;
           left: 18%;
           animation-delay: 2.3s;
+          transition-delay: 2.3s;
         }
         &:nth-child(11) {
           top: 86%;
           left: 34%;
           animation-delay: 2.4s;
+          transition-delay: 2.4s;
         }
         &:nth-child(12) {
           top: 86%;
           left: 50%;
           animation-delay: 2.5s;
+          transition-delay: 2.5s;
         }
         &:nth-child(13) {
           top: 86%;
           left: 66%;
           animation-delay: 2.6s;
+          transition-delay: 2.6s;
         }
       }
     }
@@ -243,7 +279,8 @@
       width: 18vw;
       mix-blend-mode: multiply;
       translate: -50% -50%;
-      animation: bgBubble 7.5s ease-in-out infinite alternate;
+      transition: transform 1s ease-out;
+      transform: scale(0);
     }
   }
 }
@@ -256,6 +293,11 @@
         height: 0;
         padding-bottom: 44.53333%;
         width: 100%;
+      }
+      &.background__wrapper--mobile {
+        top: 100%;
+        height: 100lvh;
+        transition: visibility 0s 0.9s;
       }
     }
   }
