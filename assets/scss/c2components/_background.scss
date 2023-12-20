@@ -101,6 +101,7 @@
       width: 50vw;
       aspect-ratio: 1;
       translate: -50% -50%;
+      mix-blend-mode: multiply;
       .bubble {
         &:nth-child(1) {
           top: 31%;
@@ -189,6 +190,7 @@
       aspect-ratio: 1;
       width: 50vw;
       translate: -50% -50%;
+      mix-blend-mode: multiply;
       .bubble {
         &:nth-child(1) {
           top: 31%;

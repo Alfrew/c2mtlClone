@@ -293,6 +293,7 @@ button {
   width: 50vw;
   aspect-ratio: 1;
   translate: -50% -50%;
+  mix-blend-mode: multiply;
 }
 .logo-c2mtl .logo-c2mtl__wrapper .logo-c2mtl__first-letter .bubble:nth-child(1) {
   top: 31%;
@@ -379,6 +380,7 @@ button {
   aspect-ratio: 1;
   width: 50vw;
   translate: -50% -50%;
+  mix-blend-mode: multiply;
 }
 .logo-c2mtl .logo-c2mtl__wrapper .logo-c2mtl__second-letter .bubble:nth-child(1) {
   top: 31%;
