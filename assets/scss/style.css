@@ -1957,8 +1957,7 @@ img {
   rotate: none;
   scale: none;
   transform-origin: 50% 50%;
-  transform: translate(-50%, -50%);
-  translate: none;
+  translate: -50% -50%;
   visibility: inherit;
 }
 .words-carousel .words-carousel__inner .words-carousel__list .words-carousel__item .words-carousel__item-words {
