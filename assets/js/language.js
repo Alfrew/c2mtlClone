@@ -1,13 +1,15 @@
-const EN_ELEMENT = document.getElementById("english");
-const FR_ELEMENT = document.getElementById("french");
+const EN_ELEMENT_LIST = document.querySelectorAll(".english-selector");
+const FR_ELEMENT_LIST = document.querySelectorAll(".french-selector");
+let langData;
 
 // Call updateContent() on page load
 window.addEventListener("DOMContentLoaded", async () => {
   const userPreferredLanguage = localStorage.getItem("language") || "en";
-  const langData = await fetchLanguageData(userPreferredLanguage);
+  langData = await fetchLanguageData(userPreferredLanguage);
   hideLanguages(userPreferredLanguage);
   updateContent(langData);
   updateAriaLabel(langData);
+  updateAlt(langData);
 });
 
 // Function to update content based on selected language
@@ -20,9 +22,17 @@ function updateContent(langData) {
 
 // Function to update aria label based on selected language
 function updateAriaLabel(langData) {
-  document.querySelectorAll("[data-btni18n]").forEach((element) => {
-    const key = element.getAttribute("data-btni18n");
+  document.querySelectorAll("[data-labeli18n]").forEach((element) => {
+    const key = element.getAttribute("data-labeli18n");
     element.ariaLabel = langData[key];
+  });
+}
+
+// Function to update aria label based on selected language
+function updateAlt(langData) {
+  document.querySelectorAll("[data-alti18n]").forEach((element) => {
+    const key = element.getAttribute("data-alti18n");
+    element.alt = langData[key];
   });
 }
 
@@ -50,12 +60,20 @@ async function changeLanguage(lang) {
 function hideLanguages(language) {
   switch (language) {
     case "en":
-      EN_ELEMENT.classList.add("d-none");
-      FR_ELEMENT.classList.remove("d-none");
+      EN_ELEMENT_LIST.forEach((el) => {
+        el.classList.add("d-none");
+      });
+      FR_ELEMENT_LIST.forEach((el) => {
+        el.classList.remove("d-none");
+      });
       break;
     case "fr":
-      FR_ELEMENT.classList.add("d-none");
-      EN_ELEMENT.classList.remove("d-none");
+      FR_ELEMENT_LIST.forEach((el) => {
+        el.classList.add("d-none");
+      });
+      EN_ELEMENT_LIST.forEach((el) => {
+        el.classList.remove("d-none");
+      });
       break;
   }
 }

@@ -646,7 +646,7 @@
         padding-bottom: 1.8rem;
       }
       .tickets-nav__item-copy {
-        color: #999;
+        color: $light-gray-color;
         max-width: 34rem;
       }
       .tickets-nav__item-footer {
@@ -672,6 +672,16 @@
       }
     }
   }
+}
+
+.content-overlay {
+  background-color: hsla(0, 0%, 8%, 0.45);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 700;
 }
 
 @include for-size("lg") {

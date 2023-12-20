@@ -9,8 +9,8 @@ const DATE_ANIM_TEXT_LIST = HERO_DATE_EL.querySelectorAll(".anim-text");
 const TITLE_ANIM_TEXT_LIST = HERO_TITLE_EL.querySelectorAll(".anim-text");
 
 setTimeout(() => {
-  splitHeroText(TITLE_ANIM_TEXT_LIST, 0.15);
-  splitHeroText(DATE_ANIM_TEXT_LIST, 0.0);
+  wordSplitter(TITLE_ANIM_TEXT_LIST, 0.15);
+  wordSplitter(DATE_ANIM_TEXT_LIST, 0.0);
 }, 1400);
 setTimeout(() => {
   HERO_TITLE_EL.classList.add("is-visible");
@@ -21,7 +21,9 @@ if (window.innerWidth < 992) {
     HERO_DATE_EL.classList.add("is-visible");
   }, 2000);
 } else {
-  window.addEventListener("scroll", checkDateElement);
+  window.addEventListener("scroll", () => {
+    elementIsVisible(HERO_DATE_EL);
+  });
 }
 window.addEventListener("scroll", animationScroll);
 
@@ -35,42 +37,7 @@ function animationScroll() {
   }
 }
 
-function checkDateElement() {
-  const triggerBottom = (window.innerHeight / 5) * 4;
-
-  const boxTop = HERO_DATE_EL.getBoundingClientRect().top;
-
-  if (boxTop < triggerBottom) {
-    HERO_DATE_EL.classList.add("is-visible");
-    window.removeEventListener("scroll", checkDateElement);
-  }
-}
-
-function splitHeroText(el, delay) {
-  el.forEach((line) => {
-    let word = line.querySelector(".text-splitter");
-    let charArray = word.textContent.split("");
-    word.innerHTML = "";
-    charArray.forEach((char) => {
-      let charEl = document.createElement("div");
-      charEl.classList.add("anim-char");
-      charEl.style.transitionDelay = `${delay}s`;
-      charEl.style.display = "inline-block";
-      charEl.textContent = char;
-      word.appendChild(charEl);
-      delay += 0.04;
-    });
-    word.classList.add("text-splitter--splitted");
-    delay -= 0.05;
-  });
-}
-
 function translateElement(element, start, finish, unit) {
   let translate = scale(window.scrollY, 0, 2700, start, finish);
   element.style.transform = `translateY(${translate}${unit})`;
 }
-
-// https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
-const scale = (num, in_min, in_max, out_min, out_max) => {
-  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
-};
