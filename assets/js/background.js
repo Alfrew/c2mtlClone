@@ -29,10 +29,10 @@ window.addEventListener("scroll", () => {
 });
 
 function animateBgLogo(maxTranslate, maxScale) {
-  let elHeight = window.document.querySelector(".content-wrapper").getBoundingClientRect().height;
+  let elHeight = window.document.querySelector(".home-hero").getBoundingClientRect().height;
   let aboutTop = window.document.querySelector("#about").getBoundingClientRect().top;
-  let translateX = scale(window.scrollY, 0, elHeight / 6, maxTranslate, 0);
-  let scaleDim = scale(window.scrollY, 0, elHeight / 6, maxScale, 1);
+  let translateX = scale(window.scrollY, 0, elHeight, maxTranslate, 0);
+  let scaleDim = scale(window.scrollY, 0, elHeight, maxScale, 1);
   if (translateX <= 0) {
     translateX = 0;
     scaleDim = 1;

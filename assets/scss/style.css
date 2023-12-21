@@ -1927,6 +1927,52 @@ img {
     right: -0.81081vw;
   }
 }
+.words-carousel {
+  height: 400vh;
+}
+.words-carousel .words-carousel__inner {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  perspective: 70rem;
+  color: #ffffff;
+}
+.words-carousel .words-carousel__inner .words-carousel__list {
+  position: relative;
+  height: 50vw;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  width: 50vw;
+}
+.words-carousel .words-carousel__inner .words-carousel__list .words-carousel__item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  white-space: nowrap;
+  backface-visibility: hidden;
+  rotate: none;
+  scale: none;
+  transform-origin: 50% 50%;
+  translate: -50% -50%;
+  visibility: inherit;
+}
+.words-carousel .words-carousel__inner .words-carousel__list .words-carousel__item .words-carousel__item-words {
+  position: relative;
+  display: inline-block;
+  rotate: none;
+  scale: none;
+  translate: none;
+}
+
+@media screen and (min-width: 768px) {
+  .words-carousel .words-carousel__inner .words-carousel__list .words-carousel__item {
+    font-size: 15rem;
+  }
+}
 .featured-speakers .masked-title {
   padding-top: 2rem;
   mix-blend-mode: lighten;

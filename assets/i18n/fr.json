@@ -163,5 +163,8 @@
   "speakerModal__title1": "Tony Hawk",
   "speakerModal__title2": "Laura Wasser",
   "speakerModal__title3": "Yoshua  Bengio",
-  "speakerModal__twitter": "Twitter"
+  "speakerModal__twitter": "Twitter",
+  "wordsCarousel__first": "Partager.",
+  "wordsCarousel__second": "Connecter.",
+  "wordsCarousel__third": "Apprendre."
 }
