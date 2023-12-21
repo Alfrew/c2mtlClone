@@ -70,8 +70,6 @@ function bodyHasModal() {
   let isNavOpen = NAV_TOGGLE_EL.classList.contains("nav-toggle--close") && NAV_EL.classList.contains("nav--open");
   let isModalOpen = document.querySelector(".speaker-modal");
 
-  console.log(isMenuOpen, isModalOpen, isNavOpen);
-
   if (isMenuOpen || isNavOpen || !!isModalOpen) {
     document.body.classList.add("modal-open");
   } else {

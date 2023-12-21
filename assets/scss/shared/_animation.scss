@@ -1,0 +1,33 @@
+.anim-text,
+.text-splitter {
+  perspective: 100rem;
+}
+.anim-fade {
+  opacity: 0;
+  transform: translateY(4rem);
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s linear;
+}
+.anim-square {
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.anim-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10rem) rotateX(-90deg);
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s linear;
+}
+
+.is-visible {
+  .anim-square {
+    transform: translateY(0);
+  }
+  .anim-char {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+  .anim-fade {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

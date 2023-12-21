@@ -5,30 +5,25 @@
 // main colors ****************************************************************
 // $main-color: #ff6c33;
 $accent-color: #00ff00;
-// $background-color: #ffffff;
 $light-color: #ffffff;
 $bg-light-color: #f2f2f2;
 $light-gray-color: #999999;
 $dark-color: #141414;
-$gradient-light-blue: #1974e8;
-$gradient-dark-blue: #2a28a5;
-$gradient-dark-orange: #ed6339;
-$gradient-pink: #fa5ca6;
-$gradient-light-orange: #eb7d2e;
+$selection-bg-color: #00ff00;
+
+$selection-color: #ffffff;
 // support colors *************************************************************
 // $main-color-tint: mix(white, $main-color, 50%);
 // $main-color-shade: mix(black, $main-color, 15%);
 // $main-color-vibrant: saturate($main-color, 100%);
 // $main-text-contrast: #e1e6ea;
 // $background-text-contrast: #3f4440;
-// neutral colors *************************************************************
-// $light-grey: #eaeaea;
-// $dark-grey: #666666;
-// $darker-grey: #424242;
+
 // alert colors ***************************************************************
 // $error-color: #ff0000;
 // $warning-color: #ffc107;
 // $success-color: #198754;
+
 // transparent colors *********************************************************
 // $amount-transpa: 0.2;
 // $main-color-transpa: transparentize($main-color, $amount-transpa);
@@ -43,17 +38,19 @@ $spacing-unit: 8px;
 $transition-time-unit: 250ms;
 $round-unit: 10%;
 
-//** TEXT *****************************************************************************************
+//** TYPOGRAPHY ***********************************************************************************
 $font-family: "Roboto", sans-serif;
 // FONT-SIZES
 // Body
-$font-size-body1: var(--font-size-body1);
-$font-size-body2: var(--font-size-body2);
-$font-size-body3: var(--font-size-body3);
+$font-size-p1: var(--font-size-p1);
+$font-size-p2: var(--font-size-p2);
 // Headings
 $font-size-h1: var(--font-size-h1);
 $font-size-h2: var(--font-size-h2);
+$font-size-h2--medium: var(--font-size-h2--medium);
+$font-size-h2--scale: var(--font-size-h2--scale);
 $font-size-h3: var(--font-size-h3);
+$font-size-h4: var(--font-size-h4);
 // Sub-titles
 $font-size-st1: var(--font-size-st1);
 $font-size-st2: var(--font-size-st2);
@@ -67,8 +64,13 @@ $font-size-link: var(--font-size-link);
 $font-size-UI: var(--font-size-UI);
 $font-size-headUI: var(--font-size-headUI);
 // LINE-HEIGHTS
-$line-height-headings: 1.125em;
-$line-height-body: 1.3em;
+$line-height-p: var(--line-height-p);
+$line-height-h1: var(--line-height-h1);
+$line-height-h2: var(--line-height-h2);
+$line-height-h2--medium: var(--line-height-h2--medium);
+$line-height-h2--scale: var(--line-height-h2--scale);
+$line-height-h3: var(--line-height-h3);
+$line-height-h4: var(--line-height-h4);
 
 //** MEDIA QUERIES ********************************************************************************
 // min-width screen sizes
@@ -138,40 +140,66 @@ $points: "", "sm", "md", "lg", "xl", "xxl";
 // From 0px to...
 :root {
   // Text-sizes
-  --font-size-body1: 16px;
-  --font-size-body2: 12px;
-  --font-size-h1: 48px;
-  --font-size-h2: 40px;
-  --font-size-h3: 24px;
-  --font-size-st1: 64px;
-  --font-size-st2: 56px;
-  --font-size-st3: 48px;
-  --font-size-st4: 32px;
-  --font-size-st5: 24px;
-  --font-size-st6: 16px;
-  --font-size-btn: 16px;
-  --font-size-link: 14px;
-  --font-size-UI: 10px;
-  --font-size-headUI: 22px;
+  --font-size-p1: 1.8rem;
+  --font-size-p2: 1.4rem;
+  --font-size-h1: 6rem;
+  --font-size-h2: 5rem;
+  --font-size-h2--medium: 4.5rem;
+  --font-size-h2--scale: 13.33333vw;
+  --font-size-h3: 2.4rem;
+  --font-size-h4: 2.2rem;
+
+  // Line heights
+  --line-height-p: 1;
+  --line-height-h1: 0.85;
+  --line-height-h2: 0.85;
+  --line-height-h2--medium: 0.8;
+  --line-height-h2--scale: 0.85;
+  --line-height-h3: 1.05;
+  --line-height-h4: 0.9;
+
+  // --font-size-st1: 64px;
+  // --font-size-st2: 56px;
+  // --font-size-st3: 48px;
+  // --font-size-st4: 32px;
+  // --font-size-st5: 24px;
+  // --font-size-st6: 16px;
+  // --font-size-btn: 16px;
+  // --font-size-link: 14px;
+  // --font-size-UI: 10px;
+  // --font-size-headUI: 22px;
 }
 // From "var" to max-width
 @media screen and (min-width: $tablet-landscape) {
   :root {
     // Text-sizes
-    --font-size-body1: 22px;
-    --font-size-body2: 16px;
-    --font-size-h1: 52px;
-    --font-size-h2: 44px;
-    --font-size-h3: 28px;
-    --font-size-st1: 68px;
-    --font-size-st2: 60px;
-    --font-size-st3: 52px;
-    --font-size-st4: 36px;
-    --font-size-st5: 28px;
-    --font-size-st6: 20px;
-    --font-size-btn: 16px;
-    --font-size-link: 14px;
-    --font-size-UI: 14px;
-    --font-size-headUI: 26px;
+    --font-size-p1: 1.8rem;
+    --font-size-p2: 1.4rem;
+    --font-size-h1: 17.5rem;
+    --font-size-h2: 15rem;
+    --font-size-h2--medium: 7.5rem;
+    --font-size-h2--scale: 10.13514vw;
+    --font-size-h3: 3rem;
+    --font-size-h4: 2.2rem;
+
+    // Line heights
+    --line-height-p: 1;
+    --line-height-h1: 1;
+    --line-height-h2: 0.8;
+    --line-height-h2--medium: 0.8;
+    --line-height-h2--scale: 0.8;
+    --line-height-h3: 1.05;
+    --line-height-h4: 0.9;
+
+    // --font-size-st1: 68px;
+    // --font-size-st2: 60px;
+    // --font-size-st3: 52px;
+    // --font-size-st4: 36px;
+    // --font-size-st5: 28px;
+    // --font-size-st6: 20px;
+    // --font-size-btn: 16px;
+    // --font-size-link: 14px;
+    // --font-size-UI: 14px;
+    // --font-size-headUI: 26px;
   }
 }

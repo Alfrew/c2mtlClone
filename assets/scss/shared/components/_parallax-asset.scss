@@ -1,0 +1,39 @@
+.parallax-asset {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  &.parallax-asset--abs {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .parallax-asset__wrapper {
+    border-radius: 0.5rem;
+    height: 100%;
+    left: 0;
+    position: relative;
+    width: 100%;
+
+    img,
+    video {
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+@include for-size("lg") {
+  .parallax-asset {
+    &.parallax-asset--abs {
+      .parallax-asset__wrapper {
+        position: absolute;
+      }
+    }
+
+    .parallax-asset__wrapper {
+      bottom: -10%;
+      height: 120%;
+      top: -10%;
+    }
+  }
+}
