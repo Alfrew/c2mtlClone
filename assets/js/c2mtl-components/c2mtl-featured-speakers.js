@@ -80,22 +80,18 @@ function openModal(index) {
   let color = "";
   switch (index) {
     case "1":
-      bios = '<p data-i18n="speakerModal__bio1s1"></p><p data-i18n="speakerModal__bio2s1"></p>';
-      socials =
-        '<li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://twitter.com/tonyhawk" target="_blank" rel="noreferrer noopener" data-i18n="speakerModal__twitter"></a></li><li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://www.instagram.com/tonyhawk/" target="_blank" rel="noreferrer noopener" data-i18n="speakerModal__instagram"></a></li>';
+      bios = `<p>${langData["speakerModal__bio1s1"]}</p><p>${langData["speakerModal__bio2s1"]}</p>`;
+      socials = `<li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://twitter.com/tonyhawk" target="_blank" rel="noreferrer noopener">${langData["speakerModal__twitter"]}</a></li><li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://www.instagram.com/tonyhawk/" target="_blank" rel="noreferrer noopener">${langData["speakerModal__instagram"]}</a></li>`;
       color = "orange";
       break;
     case "2":
-      bios = '<p data-i18n="speakerModal__bio1s2"></p><p data-i18n="speakerModal__bio2s2"></p><p data-i18n="speakerModal__bio3s2"></p>';
-      socials =
-        '<li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://www.instagram.com/laurawasserofficial/" target="_blank" rel="noreferrer noopener" data-i18n="speakerModal__instagram"></a></li>';
+      bios = `<p>${langData["speakerModal__bio1s2"]}</p><p>${langData["speakerModal__bio2s2"]}</p><p>${langData["speakerModal__bio3s2"]}</p>`;
+      socials = `<li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://www.instagram.com/laurawasserofficial/" target="_blank" rel="noreferrer noopener">${langData["speakerModal__instagram"]}</a></li>`;
       color = "pink";
       break;
     case "3":
-      bios =
-        '<p data-i18n="speakerModal__bio1s3"></p><p data-i18n="speakerModal__bio2s3"></p><p data-i18n="speakerModal__bio3s3"></p><p data-i18n="speakerModal__bio4s3"></p>';
-      socials =
-        '<li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://www.linkedin.com/in/yoshuabengio?originalSubdomain=ca" target="_blank" rel="noreferrer noopener" data-i18n="speakerModal__linkedin"></a></li>';
+      bios = `<p>${langData["speakerModal__bio1s3"]}</p><p>${langData["speakerModal__bio2s3"]}</p><p>${langData["speakerModal__bio3s3"]}</p><p>${langData["speakerModal__bio4s3"]}</p>`;
+      socials = `<li class="speaker-hero__socials-item p2 ttu"><a class="speaker-hero__socials-item-link" href="https://www.linkedin.com/in/yoshuabengio?originalSubdomain=ca" target="_blank" rel="noreferrer noopener">${langData["speakerModal__linkedin"]}</a></li>`;
       color = "purple";
       break;
   }
@@ -103,7 +99,7 @@ function openModal(index) {
   <div class="modal-wrapper">
             <div class="modal-wrapper__bg"></div>
             <button class="modal-back-btn p">
-              <span class="modal-back-btn__label" data-i18n="speakerModal__back-btn"></span>
+              <span class="modal-back-btn__label">${langData["speakerModal__back-btn"]}</span>
               <div class="modal-back-btn__icon-wrapper">
                 <div class="line"></div>
                 <div class="line"></div>
@@ -121,8 +117,8 @@ function openModal(index) {
               </div>
               <div class="modal-wrapper__content">
                 <div class="speaker-hero">
-                  <h1 class="speaker-hero__title h2 ttu" data-i18n="speakerModal__title${index}"></h1>
-                  <h2 class="speaker-hero__subtitle p" data-i18n="speakerModal__subtitle${index}"></h2>
+                  <h1 class="speaker-hero__title h2 ttu">${langData["speakerModal__title" + index]}</h1>
+                  <h2 class="speaker-hero__subtitle p">${langData["speakerModal__subtitle" + index]}</h2>
                   <div class="speaker-hero__bio p">
                     ${bios}
                   </div>
@@ -156,7 +152,6 @@ function openModal(index) {
     },
     { once: true }
   );
-  updateContent(langData);
   setTimeout(() => {
     modal.querySelector(".modal-wrapper").classList.add("modal-wrapper--visible");
     modal.querySelector(".modal-image").classList.add("is-visible");
