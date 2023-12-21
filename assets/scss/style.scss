@@ -1,10 +1,5 @@
-@import "all.scss";
-
-::selection {
-  background-color: #0f0;
-  color: #fff;
-  text-shadow: none;
-}
+@import "shared/all-shared";
+@import "c2mtl-components/all-c2mtl";
 
 .content-wrapper {
   margin-top: 6rem;

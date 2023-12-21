@@ -1,0 +1,33 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0 1rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+body.modal-open {
+  overflow-y: hidden !important;
+}
+.d-none {
+  display: none !important;
+}
+.hidden {
+  opacity: 0 !important;
+}
+
+.bg-light {
+  background-color: $bg-light-color;
+  color: $dark-color;
+}
+
+@include for-size("lg") {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    padding-left: 0.81081vw;
+    padding-right: 0.81081vw;
+    gap: 0 1.62162vw;
+  }
+}

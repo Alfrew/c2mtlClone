@@ -42,7 +42,7 @@
     }
     &.home-hero__square--gradient {
       .home-hero__square-inner::before {
-        background: linear-gradient(90deg, $gradient-dark-orange, $gradient-pink 42%, $gradient-light-orange);
+        background: linear-gradient(90deg, #ed6339, #fa5ca6 42%, #eb7d2e);
       }
     }
     .home-hero__square-inner {
@@ -90,7 +90,7 @@
           display: flex;
           align-items: flex-end;
           justify-content: center;
-          background: linear-gradient(137.82deg, $gradient-light-blue 3.56%, $gradient-dark-blue 98.56%);
+          background: linear-gradient(137.82deg, #1974e8 3.56%, #2a28a5 98.56%);
           padding: 4.2rem 0 3.6rem;
 
           .home-hero-cta__fig {

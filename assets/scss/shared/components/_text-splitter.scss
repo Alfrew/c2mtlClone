@@ -1,0 +1,7 @@
+.text-splitter {
+  display: block;
+  opacity: 0;
+  &.text-splitter--splitted {
+    opacity: 1;
+  }
+}

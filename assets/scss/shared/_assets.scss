@@ -1,0 +1,56 @@
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  width: 100%;
+}
+.base-image {
+  display: block;
+}
+.base-image__img--fade {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.base-image--fit {
+  height: 100%;
+
+  img {
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}
+.base-image__img--loaded {
+  opacity: 1;
+}
+
+.base-video {
+  display: flex;
+  position: relative;
+  &.base-video--fit {
+    height: 100%;
+    width: 100%;
+
+    video {
+      left: 0;
+      -o-object-fit: cover;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &.base-video--loaded {
+    video {
+      opacity: 1;
+    }
+  }
+  video {
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+    transition: opacity 0.4s;
+  }
+}
