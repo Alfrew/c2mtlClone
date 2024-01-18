@@ -3548,6 +3548,7 @@ body.modal-open {
   position: relative;
   z-index: 2;
   padding-top: 1rem;
+  font-size: 1.8rem;
   line-height: 1;
 }
 .footer-countdown .footer-countdown__container .footer-countdown__wrapper .footer-countdown__bubbles-container .footer-countdown__bubble {
